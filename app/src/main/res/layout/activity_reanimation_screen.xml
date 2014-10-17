@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Layout for a number input dialog
+Author: Connor Garvey
+Created: Jan 11, 2009
+Version 0.0.4
+Since 0.0.4
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="7dip">
+
+    <TableLayout
+        android:id="@+id/row1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/defi"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:onClick="incrementCounter"
+                android:text="Defi"
+                android:textSize="50dp" />
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="50dp"
+                android:id="@+id/counterDefi" />
+
+            <TextView
+                android:id="@+id/timerDefi"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00:00"
+                android:textSize="50dp" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/adrenalin"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Adrenalin"
+                android:onClick="incrementCounter"
+                android:textSize="50dp" />
+
+            <TextView
+                android:id="@+id/counterAdrenalin"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="50dp" />
+
+            <TextView
+                android:id="@+id/timerAdrenalin"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00:00"
+                android:textSize="50dp" />
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/hdm"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="logEvent"
+                android:text="HDM"
+                android:textSize="50dp" />
+
+            <Button
+                android:id="@+id/iv"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="logEvent"
+                android:text="i.V."
+                android:textSize="50dp" />
+
+            <Button
+                android:id="@+id/io"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="logEvent"
+                android:text="i.o."
+                android:textSize="50dp" />
+
+            <Button
+                android:id="@+id/intubation"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="logEvent"
+                android:text="Intubation"
+                android:textSize="50dp" />
+
+            <Button
+                android:id="@+id/rosc"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="logEvent"
+                android:text="1. ROSC"
+                android:textSize="50dp" />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>
