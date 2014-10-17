@@ -22,19 +22,17 @@ import java.util.List;
 
 public class ReanimationScreen extends Activity {
 
-    private Handler mHandler = new Handler();
-    private long startTime;
-    private long elapsedTime;
-    private final int REFRESH_RATE = 100;
-    private String minutes, seconds;
-    private long secs, mins;
+
     private boolean stopped = false;
+    private TimerTask defiTask, adreniTask;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reanimation_screen);
+        defiTask = new TimerTask((TextView) findViewById(R.id.timerDefi));
+        adreniTask = new TimerTask((TextView) findViewById(R.id.timerAdrenalin));
     }
 
     @Override
@@ -53,6 +51,7 @@ public class ReanimationScreen extends Activity {
         int mminute = c.get(Calendar.MINUTE);
         int msecond = c.get(Calendar.SECOND);
 
+        final TimerTask tempTask;
 
         int tpCounter;
         final TextView counterView;
@@ -63,7 +62,8 @@ public class ReanimationScreen extends Activity {
             tpCounter = Integer.parseInt(counterView.getText().toString());
 
             stopped = false;
-            startTimer();
+            defiTask.startTimer();
+            tempTask = defiTask;
 
 
         } else {
@@ -71,7 +71,9 @@ public class ReanimationScreen extends Activity {
             counterView = (TextView) findViewById(R.id.counterAdrenalin);
             tpCounter = Integer.parseInt(counterView.getText().toString());
 
-            stopped = true;
+            stopped = false;
+            adreniTask.startTimer();
+            tempTask = adreniTask;
 
 
         }
@@ -94,9 +96,9 @@ public class ReanimationScreen extends Activity {
             public void onClick(DialogInterface dialog, int item) {
                 // Do something with the selection
                 counterView.setText(items[item]);
-                resetTimer();
-                if (!stopped){
-                    startTimer();
+                tempTask.resetTimer();
+                if (!stopped) {
+                    tempTask.startTimer();
                 }
             }
         });
@@ -158,65 +160,6 @@ public class ReanimationScreen extends Activity {
 
         Log.d("Event: " + event, mhour + ":" + mminute + ":" + msecond);
 
-
-    }
-
-    private void startTimer() {
-
-        startTime = System.currentTimeMillis();
-
-        stopped = false;
-        mHandler.removeCallbacks(startTimer);
-        mHandler.postDelayed(startTimer, 0);
-    }
-
-
-    public void resetTimer() {
-        mHandler.removeCallbacks(startTimer);
-        ((TextView) findViewById(R.id.timerDefi)).setText("00:00");
-    }
-
-
-    private Runnable startTimer = new Runnable() {
-        public void run() {
-            elapsedTime = System.currentTimeMillis() - startTime;
-            updateTimer(elapsedTime);
-            mHandler.postDelayed(this, REFRESH_RATE);
-        }
-    };
-
-    private void updateTimer(float time) {
-        secs = (long) (time / 1000);
-        mins = (long) ((time / 1000) / 60);
-
-
-		/* Convert the seconds to String
-         * and format to ensure it has
-		 * a leading zero when required
-		 */
-        secs = secs % 60;
-        seconds = String.valueOf(secs);
-        if (secs == 0) {
-            seconds = "00";
-        }
-        if (secs < 10 && secs > 0) {
-            seconds = "0" + seconds;
-        }
-
-		/* Convert the minutes to String and format the String */
-
-        mins = mins % 60;
-        minutes = String.valueOf(mins);
-        if (mins == 0) {
-            minutes = "00";
-        }
-        if (mins < 10 && mins > 0) {
-            minutes = "0" + minutes;
-        }
-
-
-		/* Setting the timer text to the elapsed time */
-        ((TextView) findViewById(R.id.timerDefi)).setText(minutes + ":" + seconds);
 
     }
 
