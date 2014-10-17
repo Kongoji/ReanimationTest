@@ -2,9 +2,13 @@ package com.example.kongoji.reanimationtest;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -12,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -25,21 +30,62 @@ public class ReanimationScreen extends Activity {
 
     private boolean stopped = false;
     private TimerTask defiTask, adreniTask;
+    private ArrivalTask arrivalTimer;
+    private Menu mMenu;
+
+
+    private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+            Log.d("Stopwatch1", "Status: " + status);
+            boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
+                    status == BatteryManager.BATTERY_STATUS_FULL;
+
+            Log.d("Stopwatch1", "Laden: " + isCharging);
+            int chargePlug = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+            Log.d("Stopwatch1", "INT: " + chargePlug);
+            boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
+            Log.d("Stopwatch1", "USB: " + usbCharge);
+            boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
+            Log.d("Stopwatch1", "AC: " + acCharge);
+
+
+            ReanimationScreen.this.receivedBroadcast(intent, isCharging);
+        }
+    };
+
+    private void receivedBroadcast(Intent intent, boolean charged) {
+        if (charged == false) {
+            // Turn progressbar on
+            arrivalTimer.startTimer();
+            setProgressBarIndeterminateVisibility(true);
+        }
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_reanimation_screen);
         defiTask = new TimerTask((TextView) findViewById(R.id.timerDefi));
-        adreniTask = new TimerTask((TextView) findViewById(R.id.timerAdrenalin));
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.reanimation_screen, menu);
+        this.mMenu = menu;
+        adreniTask = new TimerTask((TextView) findViewById(R.id.timerAdrenalin));
+        arrivalTimer = new ArrivalTask(mMenu.findItem(R.id.statusTextview));
+        IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 
+        this.getApplicationContext().registerReceiver(mBroadcastReceiver, ifilter);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -108,7 +154,6 @@ public class ReanimationScreen extends Activity {
 
     }
 
-
     public void logEvent(View view) {
 
 
@@ -161,6 +206,26 @@ public class ReanimationScreen extends Activity {
         Log.d("Event: " + event, mhour + ":" + mminute + ":" + msecond);
 
 
+    }
+
+    public void startDocumentation() {
+
+        Intent intenti = new Intent(this, DocumentationScreenListActivity.class);
+        startActivity(intenti);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.erstbefund) {
+            startDocumentation();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

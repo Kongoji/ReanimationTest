@@ -1,13 +1,14 @@
 package com.example.kongoji.reanimationtest;
 
 import android.os.Handler;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 /**
  * Created by Kongoji on 17.10.14.
  */
-public class TimerTask {
-
+public class ArrivalTask {
 
     private Handler mHandler = new Handler();
     private long startTime;
@@ -17,10 +18,11 @@ public class TimerTask {
     private long secs, mins;
 
 
-    private TextView timerView;
+    private MenuItem timerItem;
 
-    public TimerTask(TextView view) {
-        this.timerView = view;
+    public ArrivalTask(MenuItem item) {
+
+        this.timerItem = item;
     }
 
 
@@ -34,7 +36,7 @@ public class TimerTask {
 
     public void resetTimer() {
         mHandler.removeCallbacks(startTimer);
-        timerView.setText("00:00");
+        timerItem.setTitle("Einsatzdauer: 00 Minuten");
     }
 
 
@@ -77,7 +79,7 @@ public class TimerTask {
 
 
 		/* Setting the timer text to the elapsed time */
-        timerView.setText(minutes + ":" + seconds);
+        timerItem.setTitle("Einsatzdauer: " + minutes + " Minuten");
 
     }
 

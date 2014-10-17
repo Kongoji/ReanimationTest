@@ -4,5 +4,7 @@
     <string name="app_name">ReaDoc</string>
     <string name="action_settings">Settings</string>
     <string name="action_cancel">Cancel</string>
+    <string name="title_documentationscreen_list">Items</string>
+    <string name="title_documentationscreen_detail">DocumentationScreen Detail</string>
 
 </resources>

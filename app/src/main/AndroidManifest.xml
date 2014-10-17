@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DocumentationScreenListActivity"
+            android:label="@string/title_documentationscreen_list" >
+        </activity>
+        <activity
+            android:name=".DocumentationScreenDetailActivity"
+            android:label="@string/title_documentationscreen_detail"
+            android:parentActivityName=".DocumentationScreenListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.kongoji.reanimationtest.DocumentationScreenListActivity" />
+        </activity>
     </application>
 
 </manifest>
