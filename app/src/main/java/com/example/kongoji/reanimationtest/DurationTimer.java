@@ -8,7 +8,7 @@ import android.widget.TextView;
 /**
  * Created by Kongoji on 17.10.14.
  */
-public class ArrivalTask {
+public class DurationTimer {
 
     private Handler mHandler = new Handler();
     private long startTime;
@@ -20,7 +20,7 @@ public class ArrivalTask {
 
     private MenuItem timerItem;
 
-    public ArrivalTask(MenuItem item) {
+    public DurationTimer(MenuItem item) {
 
         this.timerItem = item;
     }
@@ -36,7 +36,7 @@ public class ArrivalTask {
 
     public void resetTimer() {
         mHandler.removeCallbacks(startTimer);
-        timerItem.setTitle("Einsatzdauer: 00 Minuten");
+        timerItem.setTitle("Einsatz läuft seit: 00 Minuten");
     }
 
 
@@ -79,9 +79,7 @@ public class ArrivalTask {
 
 
 		/* Setting the timer text to the elapsed time */
-        timerItem.setTitle("Einsatzdauer: " + minutes + " Minuten");
+        timerItem.setTitle("Einsatz läuft seit: " + minutes + " Minuten");
 
     }
-
-
 }

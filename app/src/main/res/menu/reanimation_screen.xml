@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Search / will display always -->
 
+    <item android:id="@+id/undo"
+        android:title="Undo"
+        android:icon="@drawable/ic_action_undo"
+        android:showAsAction="always" />
     <item
         android:id="@+id/statusTextview"
         android:showAsAction="always"
-        android:title="Einsatzdauer: 0 Minuten" />
+        android:title="Einsatz läuft seit: 0 Minuten" />
 
     <item
         android:id="@+id/erstbefund"
-        android:title="Erstbefund">
-    </item>
+        android:title="Erstbefund"></item>
+    <item
+        android:id="@+id/massnahmen"
+        android:title="Maßnahmen"></item>
+    <item
+        android:id="@+id/verlauf"
+        android:title="Verlauf"></item>
+    <item
+        android:id="@+id/uebergabe"
+        android:title="Übergabe"></item>
+
+    <item
+        android:id="@+id/einsatzdaten"
+        android:title="Einsatzdaten"></item>
 
     <!-- Location Found -->
 

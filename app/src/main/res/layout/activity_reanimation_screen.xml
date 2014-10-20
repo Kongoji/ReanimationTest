@@ -36,14 +36,15 @@ Since 0.0.4
                 android:textSize="50dp"
                 android:id="@+id/counterDefi" />
 
-            <TextView
-                android:id="@+id/timerDefi"
+            <Chronometer
+                android:id="@+id/chronoDefi"
+                android:format="%s"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="00:00"
-                android:textSize="50dp" />
+                android:textSize="50dp"/>
         </TableRow>
 
         <TableRow android:layout_weight="1">
@@ -66,14 +67,15 @@ Since 0.0.4
                 android:text="0"
                 android:textSize="50dp" />
 
-            <TextView
-                android:id="@+id/timerAdrenalin"
+            <Chronometer
+                android:id="@+id/chronoAdrenalin"
+                android:format="%s"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="00:00"
-                android:textSize="50dp" />
+                android:textSize="50dp"/>
         </TableRow>
 
         <TableRow android:layout_weight="1">
