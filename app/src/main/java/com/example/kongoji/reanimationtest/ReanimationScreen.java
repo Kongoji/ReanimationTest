@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,8 +31,9 @@ public class ReanimationScreen extends Activity {
 
 
     private boolean stopped = false;
-    private TimerTask defiTask, adreniTask;
-    private ArrivalTask arrivalTimer;
+    private Chronometer chronoDefi;
+    private Chronometer chronoAdrenalin;
+    private DurationTimer chronoDuration;
     private Menu mMenu;
 
 
@@ -39,27 +42,17 @@ public class ReanimationScreen extends Activity {
         public void onReceive(Context context, Intent intent) {
 
             int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-            Log.d("Stopwatch1", "Status: " + status);
             boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
                     status == BatteryManager.BATTERY_STATUS_FULL;
-
-            Log.d("Stopwatch1", "Laden: " + isCharging);
-            int chargePlug = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
-            Log.d("Stopwatch1", "INT: " + chargePlug);
-            boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
-            Log.d("Stopwatch1", "USB: " + usbCharge);
-            boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
-            Log.d("Stopwatch1", "AC: " + acCharge);
-
-
             ReanimationScreen.this.receivedBroadcast(intent, isCharging);
+
         }
     };
 
     private void receivedBroadcast(Intent intent, boolean charged) {
         if (charged == false) {
             // Turn progressbar on
-            arrivalTimer.startTimer();
+             chronoDuration.startTimer();
             setProgressBarIndeterminateVisibility(true);
         }
     }
@@ -68,12 +61,14 @@ public class ReanimationScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_reanimation_screen);
-        defiTask = new TimerTask((TextView) findViewById(R.id.timerDefi));
-
+        chronoDefi = (Chronometer) findViewById(R.id.chronoDefi);
+        chronoDefi.setBase(SystemClock.elapsedRealtime());
+        chronoDefi.start();
+        chronoAdrenalin = (Chronometer) findViewById(R.id.chronoAdrenalin);
+        chronoAdrenalin.setBase(SystemClock.elapsedRealtime());
+        chronoAdrenalin.start();
     }
 
     @Override
@@ -81,8 +76,8 @@ public class ReanimationScreen extends Activity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.reanimation_screen, menu);
         this.mMenu = menu;
-        adreniTask = new TimerTask((TextView) findViewById(R.id.timerAdrenalin));
-        arrivalTimer = new ArrivalTask(mMenu.findItem(R.id.statusTextview));
+        chronoDuration = new DurationTimer(mMenu.findItem(R.id.statusTextview));
+
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 
         this.getApplicationContext().registerReceiver(mBroadcastReceiver, ifilter);
@@ -97,7 +92,7 @@ public class ReanimationScreen extends Activity {
         int mminute = c.get(Calendar.MINUTE);
         int msecond = c.get(Calendar.SECOND);
 
-        final TimerTask tempTask;
+        final Chronometer tempTask;
 
         int tpCounter;
         final TextView counterView;
@@ -106,23 +101,17 @@ public class ReanimationScreen extends Activity {
 
             counterView = (TextView) findViewById(R.id.counterDefi);
             tpCounter = Integer.parseInt(counterView.getText().toString());
-
-            stopped = false;
-            defiTask.startTimer();
-            tempTask = defiTask;
+            tempTask = chronoDefi;
 
 
         } else {
 
             counterView = (TextView) findViewById(R.id.counterAdrenalin);
             tpCounter = Integer.parseInt(counterView.getText().toString());
-
-            stopped = false;
-            adreniTask.startTimer();
-            tempTask = adreniTask;
-
-
+            tempTask = chronoAdrenalin;
         }
+
+
 
         Log.d("Event: " + findViewById(view.getId()), mhour + ":" + mminute + ":" + msecond);
 
@@ -137,26 +126,26 @@ public class ReanimationScreen extends Activity {
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Welche Reanimation hast du durchgeführt?");
+        builder.setTitle("Welche Reanimation hast du gerade durchgeführt?");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
                 // Do something with the selection
                 counterView.setText(items[item]);
-                tempTask.resetTimer();
+                tempTask.stop();
+                tempTask.setBase(SystemClock.elapsedRealtime());
                 if (!stopped) {
-                    tempTask.startTimer();
+                    tempTask.start();
                 }
             }
         });
         AlertDialog alert = builder.create();
         alert.show();
-
-
     }
 
     public void logEvent(View view) {
 
 
+        //hui
         Calendar c = Calendar.getInstance();
         int mhour = c.get(Calendar.HOUR);
         int mminute = c.get(Calendar.MINUTE);
