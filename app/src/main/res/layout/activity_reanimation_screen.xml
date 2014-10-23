@@ -8,6 +8,7 @@ Since 0.0.4
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@android:color/darker_gray"
     android:padding="7dip">
 
     <TableLayout
@@ -16,46 +17,59 @@ Since 0.0.4
         android:layout_height="fill_parent"
         android:layout_weight="1">
 
-        <TableRow android:layout_weight="1">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+
+            android:layout_weight="1"
+            android:background="@android:color/white">
 
             <Button
                 android:id="@+id/defi"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="10dip"
                 android:layout_weight="1"
                 android:onClick="incrementCounter"
                 android:text="Defi"
                 android:textSize="50dp" />
 
             <TextView
+                android:id="@+id/counterDefi"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="0"
-                android:textSize="50dp"
-                android:id="@+id/counterDefi" />
+                android:textSize="50dp" />
 
             <Chronometer
                 android:id="@+id/chronoDefi"
-                android:format="%s"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
+                android:format="%s"
                 android:gravity="center"
                 android:text="00:00"
-                android:textSize="50dp"/>
+                android:textSize="50dp" />
         </TableRow>
 
-        <TableRow android:layout_weight="1">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:layout_weight="1"
+            android:background="@android:color/white">
 
             <Button
                 android:id="@+id/adrenalin"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="10dip"
                 android:layout_weight="1"
-                android:text="Adrenalin"
                 android:onClick="incrementCounter"
+                android:text="Adrenalin"
                 android:textSize="50dp" />
 
             <TextView
@@ -69,18 +83,68 @@ Since 0.0.4
 
             <Chronometer
                 android:id="@+id/chronoAdrenalin"
-                android:format="%s"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
+                android:format="%s"
                 android:gravity="center"
                 android:text="00:00"
-                android:textSize="50dp"/>
+                android:textSize="50dp" />
         </TableRow>
 
-        <TableRow android:layout_weight="1">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:layout_weight="1">
 
-            <Button
+            <LinearLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+
+                >
+
+
+                <com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup
+                    android:id="@+id/segmented2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="10dp"
+
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <RadioButton
+                        android:id="@+id/hdm"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="HDM"
+                        android:textSize="40dp" />
+
+                    <RadioButton
+                        android:id="@+id/rosc"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="ROSC"
+                        android:textSize="40dp" />
+
+
+                </com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup>
+            </LinearLayout
+
+                >
+
+            <!--<Button
                 android:id="@+id/hdm"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
@@ -91,36 +155,6 @@ Since 0.0.4
                 android:textSize="50dp" />
 
             <Button
-                android:id="@+id/iv"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="logEvent"
-                android:text="i.V."
-                android:textSize="50dp" />
-
-            <Button
-                android:id="@+id/io"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="logEvent"
-                android:text="i.o."
-                android:textSize="50dp" />
-
-            <Button
-                android:id="@+id/intubation"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="logEvent"
-                android:text="Intubation"
-                android:textSize="50dp" />
-
-            <Button
                 android:id="@+id/rosc"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
@@ -128,7 +162,53 @@ Since 0.0.4
                 android:gravity="center"
                 android:onClick="logEvent"
                 android:text="1. ROSC"
-                android:textSize="50dp" />
+                android:textSize="50dp" />-->
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+
+                >
+
+
+                <Button
+                    android:id="@+id/iv"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="logEvent"
+                    android:text="i.v.-Zugang"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:id="@+id/io"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="logEvent"
+                    android:text="i.o.-Zugang"
+                    android:textSize="50dp" />
+
+                <Button
+                    android:id="@+id/intubation"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="logEvent"
+                    android:text="Intubation"
+                    android:textSize="50dp" />
+            </LinearLayout>
+
+
         </TableRow>
     </TableLayout>
 </RelativeLayout>

@@ -20,7 +20,7 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
     private int count = 0;
     private String title;
 
-    public ReanimationIncrementCommand (TextView counter, String title){
+    public ReanimationIncrementCommand(TextView counter, String title) {
         this.counter = counter;
         this.title = title;
         this.count = Integer.parseInt(String.valueOf(counter.getText()));
@@ -30,28 +30,9 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
     @Override
     public void execute() {
 
-        List<String> listItems = new ArrayList<String>();
+        counter.setText(String.valueOf(++count));
+        Log.d("Event: " + String.valueOf(counter.getText()), getTimeStamp());
 
-
-        for (int d = count + 1; d < N; d++) {
-            listItems.add(String.valueOf(d));
-        }
-
-        final CharSequence[] items = listItems.toArray(new CharSequence[listItems.size()]);
-
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(counter.getContext());
-        builder.setTitle(this.title);
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-                // Do something with the selection
-                counter.setText(items[item]);
-            }
-        });
-
-        Log.d("Event: " + String.valueOf(counter.getText()),getTimeStamp());
-        AlertDialog alert = builder.create();
-        alert.show();
     }
 
     @Override

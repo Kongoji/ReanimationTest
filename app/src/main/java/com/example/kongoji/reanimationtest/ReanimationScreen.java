@@ -20,7 +20,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -82,7 +86,6 @@ public class ReanimationScreen extends Activity implements CommandManager {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_reanimation_screen);
 
         chronoDefi = (Chronometer) findViewById(R.id.chronoDefi);
@@ -91,6 +94,14 @@ public class ReanimationScreen extends Activity implements CommandManager {
         chronoAdrenalin = (Chronometer) findViewById(R.id.chronoAdrenalin);
         chronoAdrenalin.setBase(SystemClock.elapsedRealtime());
         chronoAdrenalin.start();
+        final SegmentedGroup segmented2 = (SegmentedGroup) findViewById(R.id.segmented2);
+        segmented2.setTintColor(Color.DKGRAY);
+        segmented2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                logSegmentedButtonEvent(radioGroup, i);
+            }
+        });
     }
 
     @Override
@@ -156,4 +167,10 @@ public class ReanimationScreen extends Activity implements CommandManager {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void logSegmentedButtonEvent(View view, int i) {
+        executeCommand(new ReanimationSegmentedButtonCommand((SegmentedGroup) view, i));
+    }
 }
+
