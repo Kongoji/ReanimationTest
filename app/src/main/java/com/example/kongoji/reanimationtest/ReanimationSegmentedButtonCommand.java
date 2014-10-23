@@ -1,5 +1,6 @@
 package com.example.kongoji.reanimationtest;
 
+import android.graphics.Color;
 import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,6 +22,7 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
         this.radio = radio;
         this.hdm = (RadioButton) radio.getChildAt(0);
         this.rosc = (RadioButton) radio.getChildAt(1);
+        this.firstTime = radio.isFirstROSC();
 
         if (i == R.id.hdm) {
             this.selectedButton = hdm;
@@ -42,8 +44,6 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
     @Override
     public void execute() {
 
-        int oldCounter = radio.getCounter();
-        radio.setCounter(++oldCounter);
 
         if (selectedButton != null) {
             Log.d("Event:" + String.valueOf(selectedButton.getText()), getTimeStamp());
@@ -52,40 +52,39 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
         } else {
             Log.d("Event:" + "Nether HDM or ROSC selected", getTimeStamp());
         }
-
-
-        Log.e("Event:" + String.valueOf(radio.getCounter()), getTimeStamp());
     }
 
+    //@Tudo
     @Override
     public void undo() {
 
-        int oldCounter = radio.getCounter()-1;
-        radio.setCounter(oldCounter);
 
-        if (radio.getCounter() == 1) {
+        if (firstTime) {
 
             //both deselect
             hdm.setChecked(false);
-            hdm.setActivated(false);
+            hdm.setPressed(false);
             rosc.setChecked(false);
-            rosc.setActivated(false);
+            rosc.setPressed(false);
+            radio.setFirstROSC(false);
 
         } else {
-            hdm.setChecked(true);
-            hdm.setActivated(true);
-            rosc.setChecked(true);
-            rosc.setActivated(true);
-            selectedButton.setChecked(false);
-            selectedButton.setActivated(false);
-            selectedButton.setActivated(false);
-            selectedButton.setActivated(false);
 
-            Log.e("Timmy:" + String.valueOf(selectedButton.getText()), getTimeStamp());
+            if (R.id.hdm == selectedButton.getId()) {
+                hdm.setChecked(true);
+                hdm.setPressed(true);
+                rosc.setChecked(false);
+                rosc.setPressed(false);
+            } else {
+                hdm.setChecked(false);
+                hdm.setPressed(false);
+                rosc.setChecked(true);
+                rosc.setPressed(true);
+            }
+
         }
 
-
-        Log.e("Event:" + String.valueOf(selectedButton.getText()), getTimeStamp());
-        Log.e("Event:" + String.valueOf(radio.getCounter()), getTimeStamp());
+      // radio.updateBackground();
+        Log.e("Undo Event:" + String.valueOf(selectedButton.getText()), getTimeStamp());
     }
 }

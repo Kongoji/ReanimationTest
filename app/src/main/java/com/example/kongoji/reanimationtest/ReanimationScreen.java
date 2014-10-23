@@ -43,21 +43,8 @@ public class ReanimationScreen extends Activity implements CommandManager {
     private DurationTimer chronoDuration;
     //actionbar description
     private Menu mMenu;
+
     private Stack<ReanimationCommand> commandStack = new Stack<ReanimationCommand>();
-
-    @Override
-    public void executeCommand(ReanimationCommand command) {
-        command.execute();
-        commandStack.push(command);
-    }
-
-    @Override
-    public void undoCommand() {
-        if (commandStack.size() > 0) {
-            ReanimationCommand undoableCommand = commandStack.pop();
-            undoableCommand.undo();
-        }
-    }
 
 
     //used for handling battery status triggered arrival
@@ -78,7 +65,6 @@ public class ReanimationScreen extends Activity implements CommandManager {
         if (charged == false) {
             // Turn progressbar on
             chronoDuration.startTimer();
-            //setProgressBarIndeterminateVisibility(true);
         }
     }
 
@@ -90,15 +76,21 @@ public class ReanimationScreen extends Activity implements CommandManager {
 
         chronoDefi = (Chronometer) findViewById(R.id.chronoDefi);
         chronoDefi.setBase(SystemClock.elapsedRealtime());
-        chronoDefi.start();
+
         chronoAdrenalin = (Chronometer) findViewById(R.id.chronoAdrenalin);
         chronoAdrenalin.setBase(SystemClock.elapsedRealtime());
-        chronoAdrenalin.start();
+
         final SegmentedGroup segmented2 = (SegmentedGroup) findViewById(R.id.segmented2);
         segmented2.setTintColor(Color.DKGRAY);
         segmented2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+
+                if (segmented2.isFirstROSC() == false) {
+                    segmented2.setFirstROSC(true);
+
+                }
                 logSegmentedButtonEvent(radioGroup, i);
             }
         });
@@ -122,22 +114,13 @@ public class ReanimationScreen extends Activity implements CommandManager {
 
         if (view.getId() == R.id.defi) {
 
-            chronoDefi.stop();
-            chronoDefi.setBase(SystemClock.elapsedRealtime());
-            executeCommand(new ReanimationIncrementCommand((TextView) findViewById(R.id.counterDefi), "Wie oft haben Sie bereits eine Defibrillation durchgeführt?"));
-            if (!stopped) {
-                chronoDefi.start();
-            }
+            executeCommand(new ReanimationIncrementCommand((TextView) findViewById(R.id.counterDefi), chronoDefi));
 
 
         } else {
 
-            chronoAdrenalin.stop();
-            chronoAdrenalin.setBase(SystemClock.elapsedRealtime());
-            executeCommand(new ReanimationIncrementCommand((TextView) findViewById(R.id.counterAdrenalin), "Wie oft haben Sie bereits Adrenalin gegeben?"));
-            if (!stopped) {
-                chronoAdrenalin.start();
-            }
+            executeCommand(new ReanimationIncrementCommand((TextView) findViewById(R.id.counterAdrenalin), chronoAdrenalin));
+
         }
     }
 
@@ -163,6 +146,10 @@ public class ReanimationScreen extends Activity implements CommandManager {
         } else if (id == R.id.undo) {
             undoCommand();
             return true;
+        } else if (id == R.id.beenden) {
+            chronoAdrenalin.stop();
+            chronoDefi.stop();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -171,6 +158,20 @@ public class ReanimationScreen extends Activity implements CommandManager {
 
     public void logSegmentedButtonEvent(View view, int i) {
         executeCommand(new ReanimationSegmentedButtonCommand((SegmentedGroup) view, i));
+    }
+
+    @Override
+    public void executeCommand(ReanimationCommand command) {
+        command.execute();
+        commandStack.push(command);
+    }
+
+    @Override
+    public void undoCommand() {
+        if (commandStack.size() > 0) {
+            ReanimationCommand undoableCommand = commandStack.pop();
+            undoableCommand.undo();
+        }
     }
 }
 

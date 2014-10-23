@@ -22,7 +22,10 @@ public class SegmentedGroup extends RadioGroup {
     private Resources resources;
     private int mTintColor;
     private int mCheckedTextColor = Color.WHITE;
-    private int counter = 0;
+
+
+    private boolean firstROSC = false;
+
 
     public SegmentedGroup(Context context) {
         super(context);
@@ -56,13 +59,6 @@ public class SegmentedGroup extends RadioGroup {
         updateBackground();
     }
 
-    public void setCounter(int counter) {
-        this.counter = counter;
-    }
-
-    public int getCounter() {
-        return counter;
-    }
 
     public void updateBackground() {
         int count = super.getChildCount();
@@ -113,5 +109,13 @@ public class SegmentedGroup extends RadioGroup {
         } else {
             view.setBackgroundDrawable(stateListDrawable);
         }
+    }
+
+    public boolean isFirstROSC() {
+        return firstROSC;
+    }
+
+    public void setFirstROSC(boolean firstROSC) {
+        this.firstROSC = firstROSC;
     }
 }

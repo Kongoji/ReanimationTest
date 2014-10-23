@@ -2,10 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Search / will display always -->
 
-    <item android:id="@+id/undo"
-        android:title="Undo"
+
+    <item
+        android:id="@+id/undo"
         android:icon="@drawable/ic_action_undo"
-        android:showAsAction="always" />
+        android:showAsAction="always"
+        android:title="Undo" />
+    <item
+        android:id="@+id/ueber"
+        android:showAsAction="always"
+        android:title="Übergeben" />
+    <item
+        android:id="@+id/reaabruch"
+        android:showAsAction="always"
+        android:title="Rea abbrechen" />
+    <item
+        android:id="@+id/beenden"
+        android:showAsAction="always"
+        android:title="Einsatz beeenden" />
+
     <item
         android:id="@+id/statusTextview"
         android:showAsAction="always"
