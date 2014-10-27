@@ -3,8 +3,8 @@ package com.example.kongoji.reanimationtest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
-
-
+import android.view.Menu;
+import android.view.MenuItem;
 
 
 /**
@@ -14,16 +14,16 @@ import android.app.Activity;
  * lead to a {@link DocumentationScreenDetailActivity} representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
- * <p>
+ * <p/>
  * The activity makes heavy use of fragments. The list of items is a
  * {@link DocumentationScreenListFragment} and the item details
  * (if present) is a {@link DocumentationScreenDetailFragment}.
- * <p>
+ * <p/>
  * This activity also implements the required
  * {@link DocumentationScreenListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class DocumentationScreenListActivity extends Activity
+public class DocumentationScreenListActivity extends ReanimationScreen
         implements DocumentationScreenListFragment.Callbacks {
 
     /**
@@ -51,7 +51,7 @@ public class DocumentationScreenListActivity extends Activity
                     .setActivateOnItemClick(true);
         }
 
-        // TODO: If exposing deep links into your app, handle intents here.
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /**
@@ -78,6 +78,29 @@ public class DocumentationScreenListActivity extends Activity
             Intent detailIntent = new Intent(this, DocumentationScreenDetailActivity.class);
             detailIntent.putExtra(DocumentationScreenDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        super.onCreateOptionsMenu(menu);
+        MenuItem undo = menu.findItem(R.id.undo);
+        undo.setVisible(false);
+
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                //perhaps use intent if needed but i'm sure there's a specific intent action for up you can use to handle
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
