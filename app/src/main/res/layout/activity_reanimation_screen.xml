@@ -144,27 +144,6 @@ Since 0.0.4
 
                 >
 
-            <!--<Button
-                android:id="@+id/hdm"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="logEvent"
-                android:text="HDM"
-                android:textSize="50dp" />
-
-            <Button
-                android:id="@+id/rosc"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="logEvent"
-                android:text="1. ROSC"
-                android:textSize="50dp" />-->
-
-
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"

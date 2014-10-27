@@ -73,13 +73,21 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
             if (R.id.hdm == selectedButton.getId()) {
                 hdm.setChecked(true);
                 hdm.setPressed(true);
+                hdm.setSelected(true);
+                hdm.setActivated(true);
                 rosc.setChecked(false);
                 rosc.setPressed(false);
+                rosc.setSelected(false);
+                rosc.setActivated(false);
             } else {
                 hdm.setChecked(false);
                 hdm.setPressed(false);
+                hdm.setSelected(false);
+                hdm.setActivated(false);
                 rosc.setChecked(true);
                 rosc.setPressed(true);
+                rosc.setSelected(true);
+                rosc.setSelected(true);
             }
 
         }
