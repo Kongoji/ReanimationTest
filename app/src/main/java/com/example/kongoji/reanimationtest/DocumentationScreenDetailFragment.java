@@ -5,6 +5,11 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 
@@ -16,7 +21,7 @@ import com.example.kongoji.reanimationtest.dummy.DummyContent;
  * in two-pane mode (on tablets) or a {@link DocumentationScreenDetailActivity}
  * on handsets.
  */
-public class DocumentationScreenDetailFragment extends Fragment {
+public class DocumentationScreenDetailFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -49,14 +54,36 @@ public class DocumentationScreenDetailFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_documentationscreen_detail, container, false);
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.documentationscreen_detail)).setText(mItem.content);
+
+
+            Spinner spinner = (Spinner) rootView.findViewById(R.id.planets_spinner);
+
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_item,mItem.bewusstSein);
+
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(adapter);
+            spinner.setOnItemSelectedListener(this);
+
         }
 
+
         return rootView;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

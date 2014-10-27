@@ -1,5 +1,7 @@
 package com.example.kongoji.reanimationtest.dummy;
 
+import android.widget.Spinner;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +27,7 @@ public class DummyContent {
 
     static {
         // Add 3 sample items.
-        addItem(new DummyItem("1", "Hallo"));
+        addItem(new DummyItem("1", "Erstbefund"));
         addItem(new DummyItem("2", "Item 2"));
         addItem(new DummyItem("3", "Item 3"));
     }
@@ -40,16 +42,21 @@ public class DummyContent {
      */
     public static class DummyItem {
         public String id;
+        public String[] bewusstSein = {"Keine Angabe","Usw."};
         public String content;
 
+        //bleibt so
         public DummyItem(String id, String content) {
             this.id = id;
             this.content = content;
         }
 
         @Override
-        public String toString() {
+
+        public String toString(){
             return content;
         }
+
+
     }
 }
