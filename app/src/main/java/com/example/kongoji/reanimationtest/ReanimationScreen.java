@@ -12,6 +12,7 @@ import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,7 +33,7 @@ import java.util.List;
 import java.util.Stack;
 
 
-public class ReanimationScreen extends Activity implements CommandManager {
+public class ReanimationScreen extends FragmentActivity implements CommandManager {
 
 
     //is App still running?
@@ -131,8 +132,8 @@ public class ReanimationScreen extends Activity implements CommandManager {
 
     public void startDocumentation() {
 
-        Intent intenti = new Intent(this, DocumentationScreenListActivity.class);
-        startActivity(intenti);
+      Intent intenti = new Intent(this, DocumentationActivity.class);
+       startActivity(intenti);
 
     }
 

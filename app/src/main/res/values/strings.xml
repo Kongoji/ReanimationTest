@@ -6,5 +6,7 @@
     <string name="action_cancel">Cancel</string>
     <string name="title_documentationscreen_list">Items</string>
     <string name="title_documentationscreen_detail">DocumentationScreen Detail</string>
+    <string name="title_activity_documentation">DocumentationActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
