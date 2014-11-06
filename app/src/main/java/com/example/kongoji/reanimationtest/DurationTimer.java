@@ -1,5 +1,6 @@
 package com.example.kongoji.reanimationtest;
 
+import android.app.ActionBar;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
  */
 public class DurationTimer {
 
+    private final ActionBar bar;
     private Handler mHandler = new Handler();
     private long startTime;
     private long elapsedTime;
@@ -18,11 +20,8 @@ public class DurationTimer {
     private long secs, mins;
 
 
-    private MenuItem timerItem;
-
-    public DurationTimer(MenuItem item) {
-
-        this.timerItem = item;
+    public DurationTimer(ActionBar bar) {
+        this.bar = bar;
     }
 
 
@@ -36,7 +35,7 @@ public class DurationTimer {
 
     public void resetTimer() {
         mHandler.removeCallbacks(startTimer);
-        timerItem.setTitle("Einsatz läuft seit: 00 Minuten");
+        bar.setTitle("Reanimation (Dauer: " + "00" + " Minuten)");
     }
 
 
@@ -79,7 +78,8 @@ public class DurationTimer {
 
 
 		/* Setting the timer text to the elapsed time */
-        timerItem.setTitle("Einsatz läuft seit: " + minutes + " Minuten");
+        bar.setTitle("Reanimation (Dauer: " + minutes + " Minuten)");
+
 
     }
 }

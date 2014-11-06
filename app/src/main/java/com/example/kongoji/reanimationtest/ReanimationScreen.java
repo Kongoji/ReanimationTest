@@ -28,7 +28,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.almeros.android.multitouch.RotateGestureDetector;
+
 import com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Stack;
 
 
-public class ReanimationScreen extends FragmentActivity implements CommandManager, View.OnTouchListener {
+public class ReanimationScreen extends FragmentActivity implements CommandManager, RotationGestureDetector.OnRotationGestureListener {
 
 
     //is App still running?
@@ -52,8 +52,8 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     private Menu mMenu;
 
     //Gestenerkennung
-    private RotateGestureDetector mRotateDetector;
-
+    // private RotateGestureDetector mRotateDetector;
+    private RotationGestureDetector detector;
 
     private Stack<ReanimationCommand> commandStack = new Stack<ReanimationCommand>();
 
@@ -85,8 +85,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reanimation_screen);
 
-        View view = findViewById(R.id.table);
-        view.setOnTouchListener(this);
+        detector = new RotationGestureDetector(this);
 
 
         chronoDefi = (Chronometer) findViewById(R.id.chronoDefi);
@@ -110,7 +109,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
             }
         });
 
-        mRotateDetector = new RotateGestureDetector(getApplicationContext(), new RotateListener());
+        //mRotateDetector = new RotateGestureDetector(getApplicationContext(), new RotateListener());
     }
 
     @Override
@@ -118,7 +117,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.reanimation_screen, menu);
         this.mMenu = menu;
-        chronoDuration = new DurationTimer(mMenu.findItem(R.id.statusTextview));
+        chronoDuration = new DurationTimer(this.getActionBar());
 
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 
@@ -152,10 +151,13 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
         int id = item.getItemId();
 
-        if (id == R.id.undo) {
+       /* if (id == R.id.undo) {
             undoCommand();
             return true;
-        } else if (id == R.id.reaabruch) {
+        } else */
+
+
+        if (id == R.id.reaabruch) {
             endReanimation();
             return true;
         }
@@ -218,15 +220,36 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
     }
 
+
     @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        detector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public void OnRotation(RotationGestureDetector rotationDetector) {
+        float angle = rotationDetector.getAngle();
+        if (angle < 0) {
+            undoCommand();
+        }
+        Log.d("RotationGestureDetector", "Rotation: " + Float.toString(angle));
+    }
+
+
+
+
+
+
+    /*@Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mRotateDetector.onTouchEvent(motionEvent);
 
 //Event was handles
         return true;
-    }
+    }*/
 
-    private class RotateListener extends RotateGestureDetector.SimpleOnRotateGestureListener {
+  /*  private class RotateListener extends RotateGestureDetector.SimpleOnRotateGestureListener {
         @Override
         public boolean onRotate(RotateGestureDetector detector) {
             // mRotationDegrees -= detector.getRotationDegreesDelta();
@@ -234,7 +257,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
             //startDocumentation();
             return true;
         }
-    }
+    }*/
 
 
     public void startDocumentation() {

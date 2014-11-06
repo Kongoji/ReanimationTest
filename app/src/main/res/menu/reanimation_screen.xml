@@ -3,11 +3,11 @@
     <!-- Search / will display always -->
 
 
-    <item
+    <!--<item
         android:id="@+id/undo"
         android:icon="@drawable/ic_action_undo"
         android:showAsAction="always"
-        android:title="Undo" />
+        android:title="Undo" />-->
 
     <item
         android:id="@+id/reaabruch"
@@ -19,11 +19,11 @@
         android:showAsAction="always"
         android:title="Einsatz abschließen" />-->
 
-    <item
+    <!--<item
         android:id="@+id/statusTextview"
         android:showAsAction="always"
         android:title="Einsatz läuft seit: 0 Minuten" />
-
+-->
   <!--  <item
         android:id="@+id/erstbefund"
         android:title="Erstbefund"></item>-->
