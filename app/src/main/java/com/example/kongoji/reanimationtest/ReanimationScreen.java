@@ -2,6 +2,7 @@ package com.example.kongoji.reanimationtest;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,6 +25,7 @@ import android.widget.Chronometer;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup;
 
@@ -38,6 +40,8 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
     //is App still running?
     private boolean stopped = false;
+    //is REA still ongoing?
+    private boolean isDone = false;
     //timer tasks
     private Chronometer chronoDefi;
     private Chronometer chronoAdrenalin;
@@ -130,30 +134,108 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
         executeCommand(new ReanimationToggleButtonCommand((Button) view));
     }
 
-    public void startDocumentation() {
-
-      Intent intenti = new Intent(this, DocumentationActivity.class);
-       startActivity(intenti);
-
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.erstbefund) {
-            startDocumentation();
-            return true;
-        } else if (id == R.id.undo) {
+
+        if (id == R.id.undo) {
             undoCommand();
             return true;
-        } else if (id == R.id.beenden) {
-            chronoAdrenalin.stop();
-            chronoDefi.stop();
+        } else if (id == R.id.reaabruch) {
+            endReanimation();
             return true;
         }
 
+       /* else if (id == R.id.beenden) {
+            chronoAdrenalin.stop();
+            chronoDefi.stop();
+            if (!isDone){
+                endReanimation();
+            }
+            else{
+                startDocumentation();
+            }
+
+            return true;
+        }*/
+
+
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void endReanimation() {
+
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Wie möchten Sie die Reanimation abschließen?");
+
+        Calendar c = Calendar.getInstance();
+
+
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Patient übergeben", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Event loggen
+                        //  isDone = true;
+                        startDocumentation();
+                        //MainActivity.this.finish();
+                    }
+                })
+                .setNeutralButton("Reanimation fortsetzen", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //undo
+                        dialog.cancel();
+                    }
+                })
+
+                .setNegativeButton("Reanimation des Patienten abbrechen", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        //  isDone = true;
+                        startDocumentation();
+                    }
+                });
+
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+
+    }
+
+
+    public void startDocumentation() {
+
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Möchten Sie ihren Einsatz gleich dokumentieren?");
+
+
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Einsatz dokumentieren", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialogInterface, int id) {
+                        //start documentation
+                        Dialog dialog = (Dialog) dialogInterface;
+                        Context context = dialog.getContext();
+                        Intent intenti = new Intent(context, DocumentationActivity.class);
+                        startActivity(intenti);
+
+                    }
+                })
+                .setNegativeButton("Einsatz beenden und später dokumentieren", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
 

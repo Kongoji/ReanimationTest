@@ -13,9 +13,9 @@ public abstract class ReanimationCommand {
         return c.get(Calendar.HOUR) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
     }
 
-
     public abstract void execute();
 
     public abstract void undo();
+
 
 }

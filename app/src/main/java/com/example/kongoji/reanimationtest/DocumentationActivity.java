@@ -2,14 +2,18 @@ package com.example.kongoji.reanimationtest;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 
 import com.viewpagerindicator.PageIndicator;
+import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.ArrayList;
@@ -17,11 +21,13 @@ import java.util.ArrayList;
 /**
  * Created by Kongoji on 28.10.14.
  */
-public class DocumentationActivity extends ReanimationScreen implements ActionBar.OnNavigationListener {
+public class DocumentationActivity extends FragmentActivity  {
 
     TestFragmentAdapter mAdapter;
     ViewPager mPager;
-    PageIndicator mIndicator;
+    TabPageIndicator mIndicator;
+    Menu mMenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,7 @@ public class DocumentationActivity extends ReanimationScreen implements ActionBa
         setContentView(R.layout.activity_documentation);
 
         // Show the Up button in the action bar.
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        // getActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAdapter = new TestFragmentAdapter(getSupportFragmentManager());
 
@@ -37,35 +43,27 @@ public class DocumentationActivity extends ReanimationScreen implements ActionBa
         mPager.setAdapter(mAdapter);
 
 
-        mIndicator = (TitlePageIndicator) findViewById(R.id.indicator);
+       /* mIndicator = (TitlePageIndicator) findViewById(R.id.indicator);
+        mIndicator.setViewPager(mPager);*/
+
+        mIndicator = (TabPageIndicator) findViewById(R.id.indicator);
         mIndicator.setViewPager(mPager);
 
-        final ActionBar actionbar = getActionBar();
-        //actionbar.setDisplayShowTitleEnabled(false);
-        actionbar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-        ArrayList<String> itemList = new ArrayList<String>();
-        itemList.add("Erstbefund");
-        itemList.add("Maßnahmen");
-        itemList.add("Verlauf");
-        itemList.add("Übergabe");
-        itemList.add("Einsatzdaten");
-        ArrayAdapter<String> aAdpt = new ArrayAdapter<String>(actionbar.getThemedContext(), android.R.layout.simple_list_item_1, android.R.id.text1, itemList);
-
-
-        actionbar.setListNavigationCallbacks(aAdpt, this);
-
-
-    }
+}
 
     @Override
-    public boolean onNavigationItemSelected(int i, long l) {
-        return false;
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.documentation, menu);
+        this.mMenu = menu;
+        return super.onCreateOptionsMenu(menu);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+       /* int id = item.getItemId();
         if (id == android.R.id.home) {
             // This ID represents the Home or Up button. In the case of this
             // activity, the Up button is shown. Use NavUtils to allow users
@@ -76,11 +74,11 @@ public class DocumentationActivity extends ReanimationScreen implements ActionBa
             //
             NavUtils.navigateUpTo(this, new Intent(this, DocumentationActivity.class));
             return true;
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         super.onCreateOptionsMenu(menu);
@@ -89,5 +87,5 @@ public class DocumentationActivity extends ReanimationScreen implements ActionBa
 
 
         return true;
-    }
+    }*/
 }

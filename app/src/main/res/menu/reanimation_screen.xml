@@ -8,25 +8,27 @@
         android:icon="@drawable/ic_action_undo"
         android:showAsAction="always"
         android:title="Undo" />
-    <item
-        android:id="@+id/ueber"
-        android:showAsAction="always"
-        android:title="Übergeben" />
+
     <item
         android:id="@+id/reaabruch"
         android:showAsAction="always"
-        android:title="Rea abbrechen" />
-    <item
+        android:title="Reanimation abschließen" />
+
+   <!-- <item
         android:id="@+id/beenden"
         android:showAsAction="always"
-        android:title="Einsatz beeenden" />
+        android:title="Einsatz abschließen" />-->
 
     <item
         android:id="@+id/statusTextview"
         android:showAsAction="always"
         android:title="Einsatz läuft seit: 0 Minuten" />
 
-    <item
+  <!--  <item
+        android:id="@+id/erstbefund"
+        android:title="Erstbefund"></item>-->
+
+<!--    <item
         android:id="@+id/erstbefund"
         android:title="Erstbefund"></item>
     <item
@@ -41,7 +43,7 @@
 
     <item
         android:id="@+id/einsatzdaten"
-        android:title="Einsatzdaten"></item>
+        android:title="Einsatzdaten"></item>-->
 
     <!-- Location Found -->
 

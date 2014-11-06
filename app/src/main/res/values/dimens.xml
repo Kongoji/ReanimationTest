@@ -13,5 +13,12 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+   <string-array name="bewusstsein">
+       <item>Bla</item>
+       <item>Bla2</item>
+       <item>Bla3</item>
+       <item>Bla4</item>
+       <item>Bla5</item>
+   </string-array>
 
 </resources>
