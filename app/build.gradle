@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.kongoji.reanimationtest"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 20
         versionCode 1
         versionName "1.0"
@@ -26,4 +26,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':library')
     compile 'com.android.support:support-v4:21.0.0'
+    compile project(':libraries:gesten')
 }

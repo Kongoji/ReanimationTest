@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -27,6 +28,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.almeros.android.multitouch.RotateGestureDetector;
 import com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup;
 
 import java.util.ArrayList;
@@ -35,7 +37,7 @@ import java.util.List;
 import java.util.Stack;
 
 
-public class ReanimationScreen extends FragmentActivity implements CommandManager {
+public class ReanimationScreen extends FragmentActivity implements CommandManager, View.OnTouchListener {
 
 
     //is App still running?
@@ -48,6 +50,10 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     private DurationTimer chronoDuration;
     //actionbar description
     private Menu mMenu;
+
+    //Gestenerkennung
+    private RotateGestureDetector mRotateDetector;
+
 
     private Stack<ReanimationCommand> commandStack = new Stack<ReanimationCommand>();
 
@@ -79,6 +85,10 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reanimation_screen);
 
+        View view = findViewById(R.id.table);
+        view.setOnTouchListener(this);
+
+
         chronoDefi = (Chronometer) findViewById(R.id.chronoDefi);
         chronoDefi.setBase(SystemClock.elapsedRealtime());
 
@@ -99,6 +109,8 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
                 logSegmentedButtonEvent(radioGroup, i);
             }
         });
+
+        mRotateDetector = new RotateGestureDetector(getApplicationContext(), new RotateListener());
     }
 
     @Override
@@ -204,6 +216,24 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
 
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        mRotateDetector.onTouchEvent(motionEvent);
+
+//Event was handles
+        return true;
+    }
+
+    private class RotateListener extends RotateGestureDetector.SimpleOnRotateGestureListener {
+        @Override
+        public boolean onRotate(RotateGestureDetector detector) {
+            // mRotationDegrees -= detector.getRotationDegreesDelta();
+            Log.e("timmy","es logt");
+            //startDocumentation();
+            return true;
+        }
     }
 
 
