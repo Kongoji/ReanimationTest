@@ -24,7 +24,28 @@ public class SegmentedGroup extends RadioGroup {
     private int mCheckedTextColor = Color.WHITE;
 
 
-    private boolean firstROSC = false;
+    //first Click on Segmented Group
+    private boolean firstROSC = true;
+
+    public boolean isNonUserSelection() {
+        return nonUserSelection;
+    }
+
+    public void setNonUserSelection(boolean nonUserSelection) {
+        this.nonUserSelection = nonUserSelection;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    private boolean nonUserSelection = false;
+
+    private int counter = 0;
 
 
     public SegmentedGroup(Context context) {

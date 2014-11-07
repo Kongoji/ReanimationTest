@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -51,10 +52,10 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     //actionbar description
     private Menu mMenu;
 
-    //Gestenerkennung
-    // private RotateGestureDetector mRotateDetector;
-    private RotationGestureDetector detector;
 
+    //Gestenerkennung
+    private RotationGestureDetector detector;
+    //UNDO-Stack
     private Stack<ReanimationCommand> commandStack = new Stack<ReanimationCommand>();
 
 
@@ -96,20 +97,21 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
         final SegmentedGroup segmented2 = (SegmentedGroup) findViewById(R.id.segmented2);
         segmented2.setTintColor(Color.DKGRAY);
+
+
         segmented2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
 
-                if (segmented2.isFirstROSC() == false) {
-                    segmented2.setFirstROSC(true);
+                if (!segmented2.isNonUserSelection()) {
+                    //get only on the stack if ui-triggered
+                    logSegmentedButtonEvent(radioGroup, i);
 
                 }
-                logSegmentedButtonEvent(radioGroup, i);
+
             }
         });
-
-        //mRotateDetector = new RotateGestureDetector(getApplicationContext(), new RotateListener());
     }
 
     @Override
@@ -151,32 +153,13 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
         int id = item.getItemId();
 
-       /* if (id == R.id.undo) {
-            undoCommand();
-            return true;
-        } else */
-
 
         if (id == R.id.reaabruch) {
             endReanimation();
             return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
-
-       /* else if (id == R.id.beenden) {
-            chronoAdrenalin.stop();
-            chronoDefi.stop();
-            if (!isDone){
-                endReanimation();
-            }
-            else{
-                startDocumentation();
-            }
-
-            return true;
-        }*/
-
-
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -230,34 +213,15 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     @Override
     public void OnRotation(RotationGestureDetector rotationDetector) {
         float angle = rotationDetector.getAngle();
-        if (angle < 0) {
-            undoCommand();
-        }
         Log.d("RotationGestureDetector", "Rotation: " + Float.toString(angle));
-    }
-
-
-
-
-
-
-    /*@Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        mRotateDetector.onTouchEvent(motionEvent);
-
-//Event was handles
-        return true;
-    }*/
-
-  /*  private class RotateListener extends RotateGestureDetector.SimpleOnRotateGestureListener {
-        @Override
-        public boolean onRotate(RotateGestureDetector detector) {
-            // mRotationDegrees -= detector.getRotationDegreesDelta();
-            Log.e("timmy","es logt");
-            //startDocumentation();
-            return true;
+        if (angle > 90) {
+            undoCommand();
+        } else {
+            return;
         }
-    }*/
+
+
+    }
 
 
     public void startDocumentation() {

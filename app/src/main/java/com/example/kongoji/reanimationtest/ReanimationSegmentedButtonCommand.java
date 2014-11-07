@@ -16,13 +16,12 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
     private RadioButton hdm;
     private RadioButton rosc;
     private RadioButton selectedButton;
-    private boolean firstTime;
+
 
     public ReanimationSegmentedButtonCommand(SegmentedGroup radio, int i) {
         this.radio = radio;
         this.hdm = (RadioButton) radio.getChildAt(0);
         this.rosc = (RadioButton) radio.getChildAt(1);
-        this.firstTime = radio.isFirstROSC();
 
         if (i == R.id.hdm) {
             this.selectedButton = hdm;
@@ -46,6 +45,9 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
 
 
         if (selectedButton != null) {
+            radio.setCounter(radio.getCounter() + 1);
+
+            notifyUser(selectedButton.getContext(), selectedButton.getText() + " durchgeführt");
             Log.d("Event:" + String.valueOf(selectedButton.getText()), getTimeStamp());
 
 
@@ -59,40 +61,36 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
     public void undo() {
 
 
-        if (firstTime) {
+        radio.setNonUserSelection(true);
 
-            //both deselect
-            hdm.setChecked(false);
-            hdm.setPressed(false);
-            rosc.setChecked(false);
-            rosc.setPressed(false);
-            radio.setFirstROSC(false);
+        radio.setCounter(radio.getCounter() - 1);
+
+        notifyUser(selectedButton.getContext(), selectedButton.getText() + " rückgängig gemacht");
+
+        if (radio.getCounter() == 0) {
+
+
+            radio.clearCheck();
+
 
         } else {
 
             if (R.id.hdm == selectedButton.getId()) {
-                hdm.setChecked(true);
-                hdm.setPressed(true);
-                hdm.setSelected(true);
-                hdm.setActivated(true);
-                rosc.setChecked(false);
-                rosc.setPressed(false);
-                rosc.setSelected(false);
-                rosc.setActivated(false);
+
+                hdm.toggle();
+                rosc.toggle();
+                hdm.performClick();
+
             } else {
-                hdm.setChecked(false);
-                hdm.setPressed(false);
-                hdm.setSelected(false);
-                hdm.setActivated(false);
-                rosc.setChecked(true);
-                rosc.setPressed(true);
-                rosc.setSelected(true);
-                rosc.setSelected(true);
+
+                hdm.toggle();
+                rosc.toggle();
+                rosc.performClick();
+
             }
 
         }
 
-      // radio.updateBackground();
-        Log.e("Undo Event:" + String.valueOf(selectedButton.getText()), getTimeStamp());
+        radio.setNonUserSelection(false);
     }
 }
