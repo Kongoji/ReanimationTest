@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="/Volumes/MacintoshHD2/downloads/ReanimationTest/libraries/gesten/src/main/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Volumes/MacintoshHD2/downloads/ReanimationTest/libraries/gesten/src/debug/assets" />
+    </dataSet>
+
+</merger>
