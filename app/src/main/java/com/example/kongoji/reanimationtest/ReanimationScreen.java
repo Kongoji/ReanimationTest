@@ -1,6 +1,5 @@
 package com.example.kongoji.reanimationtest;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
@@ -11,35 +10,32 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.BatteryManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.Chronometer;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Stack;
 
 
 public class ReanimationScreen extends FragmentActivity implements CommandManager, RotationGestureDetector.OnRotationGestureListener {
 
+    //only one undoable function
+    private boolean undoableOnlyOnetime = true;
+
+    private static final int  TIME_FOR_DEFI_TIMER_COLOR_CHANGE = 120;
+    private static final int TIME_FOR_ADRENALIN_TIMER_COLOR_CHANGE = 180;
 
     //is App still running?
     private boolean stopped = false;
@@ -68,7 +64,6 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
             boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
                     status == BatteryManager.BATTERY_STATUS_FULL;
             ReanimationScreen.this.receivedBroadcast(intent, isCharging);
-
         }
     };
 
@@ -91,9 +86,30 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
         chronoDefi = (Chronometer) findViewById(R.id.chronoDefi);
         chronoDefi.setBase(SystemClock.elapsedRealtime());
+        chronoDefi.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+
+
+                if (getSecondsFromDurationString(String.valueOf(chronometer.getText())) > TIME_FOR_DEFI_TIMER_COLOR_CHANGE) {
+                    changeTimeTextColor(chronometer);
+                }
+
+
+            }
+        });
 
         chronoAdrenalin = (Chronometer) findViewById(R.id.chronoAdrenalin);
         chronoAdrenalin.setBase(SystemClock.elapsedRealtime());
+        chronoAdrenalin.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                if (getSecondsFromDurationString(String.valueOf(chronometer.getText())) > TIME_FOR_ADRENALIN_TIMER_COLOR_CHANGE) {
+                    changeTimeTextColor(chronometer);
+                }
+            }
+        });
+
 
         final SegmentedGroup segmented2 = (SegmentedGroup) findViewById(R.id.segmented2);
         segmented2.setTintColor(Color.DKGRAY);
@@ -262,16 +278,45 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
     @Override
     public void executeCommand(ReanimationCommand command) {
+        undoableOnlyOnetime = true;
         command.execute();
         commandStack.push(command);
     }
 
     @Override
     public void undoCommand() {
-        if (commandStack.size() > 0) {
+        if (commandStack.size() > 0 && undoableOnlyOnetime) {
+            undoableOnlyOnetime = false;
             ReanimationCommand undoableCommand = commandStack.pop();
             undoableCommand.undo();
         }
+    }
+
+    public int getSecondsFromDurationString(String value) {
+
+        String[] parts = value.split(":");
+
+        // Wrong format, no value for you.
+        if (parts.length < 2 || parts.length > 3)
+            return 0;
+
+        int seconds = 0, minutes = 0, hours = 0;
+
+        if (parts.length == 2) {
+            seconds = Integer.parseInt(parts[1]);
+            minutes = Integer.parseInt(parts[0]);
+        } else if (parts.length == 3) {
+            seconds = Integer.parseInt(parts[2]);
+            minutes = Integer.parseInt(parts[1]);
+            hours = Integer.parseInt(parts[1]);
+        }
+
+        Log.e("bam", String.valueOf(seconds + (minutes * 60) + (hours * 3600)));
+        return seconds + (minutes * 60) + (hours * 3600);
+    }
+
+    public void changeTimeTextColor(Chronometer chronometer) {
+        chronometer.setTextColor(Color.parseColor("#FF4444"));
     }
 }
 

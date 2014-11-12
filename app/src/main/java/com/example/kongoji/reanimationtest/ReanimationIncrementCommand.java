@@ -2,6 +2,7 @@ package com.example.kongoji.reanimationtest;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Chronometer;
@@ -38,6 +39,7 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
 
         chronometer.stop();
         chronometer.setBase(SystemClock.elapsedRealtime());
+        chronometer.setTextColor(Color.BLACK);
 
         counter.setText(String.valueOf(++count));
         Log.d("Event: " + String.valueOf(counter.getText()), getTimeStamp());
