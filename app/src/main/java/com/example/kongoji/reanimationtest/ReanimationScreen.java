@@ -214,7 +214,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     public void OnRotation(RotationGestureDetector rotationDetector) {
         float angle = rotationDetector.getAngle();
         Log.d("RotationGestureDetector", "Rotation: " + Float.toString(angle));
-        if (angle > 90) {
+        if (angle > 45) {
             undoCommand();
         } else {
             return;

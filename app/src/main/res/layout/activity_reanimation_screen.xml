@@ -33,6 +33,7 @@ Since 0.0.4
                 android:layout_weight="1"
                 android:onClick="incrementCounter"
                 android:text="Defi"
+                android:background="@drawable/buttonshape"
                 android:textSize="50dp" />
 
             <TextView
@@ -70,6 +71,7 @@ Since 0.0.4
                 android:layout_weight="1"
                 android:onClick="incrementCounter"
                 android:text="Adrenalin"
+                android:background="@drawable/buttonshape"
                 android:textSize="50dp" />
 
             <TextView
@@ -162,6 +164,7 @@ Since 0.0.4
                     android:gravity="center"
                     android:onClick="logEvent"
                     android:text="i.v.-Zugang"
+                    android:background="@drawable/buttonshape"
                     android:textSize="50dp" />
 
                 <Button
@@ -173,6 +176,7 @@ Since 0.0.4
                     android:gravity="center"
                     android:onClick="logEvent"
                     android:text="i.o.-Zugang"
+                    android:background="@drawable/buttonshape"
                     android:textSize="50dp" />
 
                 <Button
@@ -184,6 +188,7 @@ Since 0.0.4
                     android:gravity="center"
                     android:onClick="logEvent"
                     android:text="Intubation"
+                    android:background="@drawable/buttonshape"
                     android:textSize="50dp" />
             </LinearLayout>
 

@@ -32,9 +32,4 @@
     <style name="CustomTabPageIndicator.Text" parent="android:TextAppearance.Medium">
         <item name="android:typeface">monospace</item>
     </style>
-
-
-
-
-
 </resources>

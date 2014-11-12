@@ -23,8 +23,9 @@ public class ReanimationToggleButtonCommand extends ReanimationCommand {
 
     @Override
     public void execute() {
-        button.setEnabled(false);
-        button.setBackgroundColor(Color.GREEN);
+        this.button.setEnabled(false);
+        this.button.setBackgroundResource(R.drawable.buttonshape_clicked);
+        this.button.setTextColor(Color.WHITE);
         Log.d("Event:" + String.valueOf(button.getText()), getTimeStamp());
 
 
@@ -37,7 +38,8 @@ public class ReanimationToggleButtonCommand extends ReanimationCommand {
     public void undo() {
 
         this.button.setEnabled(isItOn);
-        this.button.setBackgroundResource(android.R.drawable.btn_default);
+        this.button.setBackgroundResource(R.drawable.buttonshape);
+        this.button.setTextColor(Color.BLACK);
         Log.d("Event:" + String.valueOf("Undo:" + button.getText()), getTimeStamp());
         notifyUser(button.getContext(), button.getText() + " rückgängig gemacht");
 
