@@ -11,5 +11,6 @@
     <string name="title_activity_start_screen">ReaDocApp</string>
     <string name="welcome_rea">Mit der Reanimation beginnen</string>
     <string name="welcome_docu">Ich möchte lediglich dokumentieren</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

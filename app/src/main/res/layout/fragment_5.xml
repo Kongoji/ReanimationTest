@@ -1,0 +1,780 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:background="@android:color/darker_gray">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/white">
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Einsatzgrund"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_symptom_aenderung_des_bewusstseins"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Symptom: Änderung der Bewusstseins" />
+
+            <CheckBox
+                android:id="@+id/checkbox_pathologische_laborwerte"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Pathologische Laborwerte" />
+
+            <CheckBox
+                android:id="@+id/checkbox_hf_40_oder_140"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="HF &lt; 49/min oder &gt; 140/min" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_symptom_luftnot"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Symptom: Luftnot" />
+
+            <CheckBox
+                android:id="@+id/checkbox_atemstillstand"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Atemstillstand" />
+
+            <CheckBox
+                android:id="@+id/checkbox_af_5_oder_36"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="AF &lt; 5/min oder &gt; 36/min" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_symptom_brustschmerz"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Symptom: Brustschmerz" />
+
+            <CheckBox
+                android:id="@+id/checkbox_kreislaufstillstand"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Kreislaufstillstand" />
+
+
+            <CheckBox
+                android:id="@+id/checkbox_rr_sys_90_oder_180"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="RR syst &lt; 90mmHg oder &gt; 180mmHG" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_team_beunruhigt"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Team beunruhigt" />
+
+            <CheckBox
+                android:id="@+id/checkbox_kriterium_vitalzeichen"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Kriterium Vitalzeichen" />
+
+            <CheckBox
+                android:id="@+id/checkbox_35_grad"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Temp. &lt; 35°C oder &gt; 39,5°C" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Sonstige" />
+
+            <EditText
+                android:id="@+id/textfield_einsatzdaten_sonstige"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:inputType="text" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.30" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Einsatzort | Fachbereich"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_operativ"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Operativ" />
+
+            <CheckBox
+                android:id="@+id/checkbox_urologie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Urologie" />
+
+            <CheckBox
+                android:id="@+id/checkbox_psychatrie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Psychatrie" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_allg_chirurgie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Allg. Chirurgie" />
+
+
+            <CheckBox
+                android:id="@+id/checkbox_konservativ"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Konservativ" />
+
+            <CheckBox
+                android:id="@+id/checkbox_paediatrie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Pädiatrie" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_traumatologie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Traumatologie" />
+
+            <CheckBox
+                android:id="@+id/checkbox_innere"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Innere" />
+
+            <CheckBox
+                android:id="@+id/checkbox_gynaekologie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Gynäkologie" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_neurologie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Neurologie" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Sonstige" />
+
+            <EditText
+                android:id="@+id/textfield_fachgebiet_sonstige"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:inputType="text" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.30" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Einsatzort | Station/Bereich"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_normal_station"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Normal Station" />
+
+            <CheckBox
+                android:id="@+id/checkbox_station_op"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="OP" />
+
+            <CheckBox
+                android:id="@+id/checkbox_intermed_care"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Intermed. Care" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_aufwachraum"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Aufwachraum" />
+
+            <CheckBox
+                android:id="@+id/checkbox_intensivstation"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Intensivstation" />
+
+            <CheckBox
+                android:id="@+id/checkbox_funktionsbereich"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Funktionsbereich" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_notaufnahme"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Notaufnahme" />
+
+            <CheckBox
+                android:id="@+id/checkbox_gelaende"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Gelände" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Sonstige" />
+
+            <EditText
+                android:id="@+id/textfield_station_sonstige"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:inputType="text" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.30" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Vermutete Ursachen"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_hypaxie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Hypaxie" />
+
+            <CheckBox
+                android:id="@+id/checkbox_blutung"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Blutung" />
+
+            <CheckBox
+                android:id="@+id/checkbox_kardial"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Kardial" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_metabol"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Metabol" />
+
+            <CheckBox
+                android:id="@+id/checkbox_schlaganfall"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Schlaganfall" />
+
+            <CheckBox
+                android:id="@+id/checkbox_krampfanfall"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Krampfanfall" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Sonstige" />
+
+            <EditText
+                android:id="@+id/textfield_ursachen_sonstige"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:inputType="text" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.30" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.40"
+                android:text="Krankenhaushauptdiagnose" />
+
+            <EditText
+                android:id="@+id/textfield_krankenhaushauptdiagnose1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/textfield_krankenhaushauptdiagnose2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.45"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.40"
+                android:text="Krankenhausnebendiagnose" />
+
+            <EditText
+                android:id="@+id/textfield_krankenhausnebendiagnose1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/textfield_krankenhausnebendiagnose2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.45"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.40"
+                android:text="OP-Diagnose" />
+
+            <EditText
+                android:id="@+id/textfield_op_diagnose1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/textfield_op_diagnose2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.45"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:text="OP-Datum" />
+
+            <EditText
+                android:id="@+id/textfield_op_datum"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Notfallgeschehen/Anamnese/Erstbefund"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <EditText
+                android:id="@+id/textfield_notfallgeschehen"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Medikation" />
+
+            <EditText
+                android:id="@+id/textfield_medikation"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Allergie" />
+
+            <EditText
+                android:id="@+id/textfield_allergie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65"
+                android:inputType="text" />
+
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>

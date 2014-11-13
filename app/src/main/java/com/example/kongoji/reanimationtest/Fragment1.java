@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class Fragment1 extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -27,7 +28,13 @@ public class Fragment1 extends Fragment implements AdapterView.OnItemSelectedLis
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
+
         View rootView = inflater.inflate(R.layout.fragment_1, null);
+
+
+        TextView bewusst = (TextView) rootView.findViewById(R.id.startID);
+        bewusst.requestFocus();
 
 
         Spinner spinnerBewusstsein = (Spinner) rootView.findViewById(R.id.spinner_bewusstsein);
@@ -67,6 +74,7 @@ public class Fragment1 extends Fragment implements AdapterView.OnItemSelectedLis
         spinnerCorneareflex.setOnItemSelectedListener(this);
 
         EditText textfieldGCS = (EditText) rootView.findViewById(R.id.textfield_gcs);
+
 
         EditText textfieldLaehmungen = (EditText) rootView.findViewById(R.id.textfield_laehmungen);
 

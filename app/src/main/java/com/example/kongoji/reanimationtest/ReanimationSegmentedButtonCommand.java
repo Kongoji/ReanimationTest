@@ -76,17 +76,14 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
         } else {
 
             if (R.id.hdm == selectedButton.getId()) {
-
-                hdm.toggle();
-                rosc.toggle();
-                hdm.performClick();
-
-            } else {
-
                 hdm.toggle();
                 rosc.toggle();
                 rosc.performClick();
 
+            } else {
+                hdm.toggle();
+                rosc.toggle();
+                hdm.performClick();
             }
 
         }

@@ -1,12 +1,291 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    <TextView 
-        android:gravity="center"
-        android:text="Fragment 3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:background="@android:color/darker_gray">
 
-</LinearLayout>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/white">
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_antihypertensivia"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Antihypertensivia" />
+
+            <CheckBox
+                android:id="@+id/checkbox_kortikosteroide"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Kortikosteroide" />
+
+            <CheckBox
+                android:id="@+id/checkbox_kristalloide"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Kristalloide" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_analgetika"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Analgetika (Opiate)" />
+
+            <CheckBox
+                android:id="@+id/checkbox_antikoagulatien"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Antikoagulatien" />
+
+            <CheckBox
+                android:id="@+id/checkbox_muskelrelaxtantien"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Muskelrelaxtantien" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_kolloide"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Kollide" />
+
+            <CheckBox
+                android:id="@+id/checkbox_antiarrhythika"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Antiarrhythika" />
+
+            <CheckBox
+                android:id="@+id/checkbox_bronchodilatatoren"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Bronchodilatatoren" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_Narkotika"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Narkotika" />
+
+            <CheckBox
+                android:id="@+id/checkbox_small_volume_lsg"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Small Volume Lsg." />
+
+            <CheckBox
+                android:id="@+id/checkbox_antidota"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Antidota" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_duretika"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Duretika" />
+
+            <CheckBox
+                android:id="@+id/checkbox_sedativa"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Sedativa" />
+
+            <CheckBox
+                android:id="@+id/checkbox_pufferloesung"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Pufferlösung" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_antiemetika"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Antimetika" />
+
+            <CheckBox
+                android:id="@+id/checkbox_glukose"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Glukose" />
+
+            <CheckBox
+                android:id="@+id/checkbox_thrombolytika"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Thrombolytika" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_antikonvulsiva"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:text="Antikonvulsiva" />
+
+            <CheckBox
+                android:id="@+id/checkbox_katecholamine"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Katecholamine" />
+
+            <CheckBox
+                android:id="@+id/checkbox_vasodilatantien"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:text="Vasodilatantien" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Sonstige" />
+
+            <EditText
+                android:id="@+id/textfield_verlauf_sonstige"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Verlauf" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <EditText
+                android:id="@+id/textfield_verlauf"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="text" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</ScrollView>

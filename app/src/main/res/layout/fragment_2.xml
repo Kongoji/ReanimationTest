@@ -1,12 +1,1154 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    <TextView 
-        android:gravity="center"
-        android:text="Fragment 2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:background="@android:color/darker_gray">
 
-</LinearLayout>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/white">
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Massnahmen Reanimation"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_aed_hlw"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="AED-HLW" />
+
+            <CheckBox
+                android:id="@+id/label_feedback_syst"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50"
+                android:text="Feedback syst." />
+
+            <EditText
+                android:id="@+id/textfield_feedback_syst"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_offene_hlw"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="offene HLW" />
+
+            <CheckBox
+                android:id="@+id/checkbox_lukas"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50"
+                android:text="Lukas" />
+
+            <EditText
+                android:id="@+id/textfield_lukas"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_aktive_kuehlung"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Aktive Kühlung" />
+
+            <EditText
+                android:id="@+id/textfield_aktive_kuehlung"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Defi Auswertung"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="1. erfolgreicher Schock" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Energie" />
+
+            <EditText
+                android:id="@+id/textfield_energie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1625"
+                android:inputType="text" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5125" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Anzahl" />
+
+            <EditText
+                android:id="@+id/textfield_anzahl"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1625"
+                android:inputType="text" />
+
+            <CheckBox
+                android:id="@+id/checkbox_biphasisch"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5125"
+                android:text="biphasisch" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Code Hersteller" />
+
+            <EditText
+                android:id="@+id/textfield_code_hersteller"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.325"
+                android:inputType="text" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.325" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Code Defi" />
+
+            <EditText
+                android:id="@+id/textfield_code_defi"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.325"
+                android:inputType="text" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.325" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Monitoring"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="EKG" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_ekg"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="12-Kanal-EKG" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_12_kanal_ekg"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="RR man" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_rr_man"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="RR oszill." />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_rr_oszil"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="RR invasiv" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_rr_invasiv"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Pulsoximetrie" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_pulsoximetrie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Kapnometrie" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_kapnometrie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Temperatur" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_temperatur"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="ICP" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_icp"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="ZVD" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_zvd"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="PICCO" />
+
+            <Spinner
+                android:id="@+id/spinner_monitoring_picco"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_blutgasanalyse"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:text="Blutgasan." />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:text="Zeit" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+
+                android:text="Ergebnis" />
+
+            <EditText
+                android:id="@+id/textfield_ergebnis"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_labor"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:text="Labor" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:text="Zeit" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Sonstiges Monitoring"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <Spinner
+                android:id="@+id/spinner_sonstiges_monitoring1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+            <EditText
+                android:id="@+id/textfield_sonstiges_monitoring1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <Spinner
+                android:id="@+id/spinner_sonstiges_monitoring2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+            <EditText
+                android:id="@+id/textfield_sonstiges_monitoring2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Weitere Maßnahmen"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Schrittmacher" />
+
+            <Spinner
+                android:id="@+id/spinner_schrittmacher"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="i.V. Zugang" />
+
+            <Spinner
+                android:id="@+id/spinner_iv_zugang"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="i.o. Nadel" />
+
+            <Spinner
+                android:id="@+id/spinner_io_nadel"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="a.b. Medikation" />
+
+            <Spinner
+                android:id="@+id/spinner_ab_medikation"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="ZVK" />
+
+            <Spinner
+                android:id="@+id/spinner_zvk"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.325" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1625"
+                android:paddingLeft="20dp"
+                android:text="Lumen" />
+
+            <EditText
+                android:id="@+id/textfield_lumen"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1625"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Athmung"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="O2 Insuff." />
+
+            <Spinner
+                android:id="@+id/spinner_o2_insuff"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="NIV/CPAP Maske" />
+
+            <Spinner
+                android:id="@+id/spinner_niv_cpap_maske"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Orale Intubation" />
+
+            <Spinner
+                android:id="@+id/spinner_orale_intubation"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Nasale Intubation" />
+
+            <Spinner
+                android:id="@+id/spinner_nasale_intubation"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Larynxmaske" />
+
+            <Spinner
+                android:id="@+id/spinner_larynxmaske"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Larynxtubus" />
+
+            <Spinner
+                android:id="@+id/spinner_larynxtubus"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Tracheotomie" />
+
+            <Spinner
+                android:id="@+id/spinner_tracheotomie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50" />
+
+            <EditText
+                android:id="@+id/textfield_tracheotomie"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Magensonde" />
+
+            <Spinner
+                android:id="@+id/spinner_magensonde"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50" />
+
+            <EditText
+                android:id="@+id/textfield_magensonde"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Harnableitung" />
+
+            <Spinner
+                android:id="@+id/spinner_harnableitung"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50" />
+
+            <EditText
+                android:id="@+id/textfield_harnableitung"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Thoraxdrainage" />
+
+            <Spinner
+                android:id="@+id/spinner_thoraxdrainage"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50" />
+
+            <EditText
+                android:id="@+id/textfield_thoraxdrainage"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35" />
+
+            <CheckBox
+                android:id="@+id/checkbox_thoraxdrainage_links"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:text="li" />
+
+            <CheckBox
+                android:id="@+id/checkbox_thoraxdrainage_rechts"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:text="re" />
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25" />
+
+        </TableRow>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Komplikationen"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Intubation" />
+
+            <Spinner
+                android:id="@+id/spinner_komplikation_intubation"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35"
+                android:text="Intubation" />
+
+            <Spinner
+                android:id="@+id/spinner_komplikation_ivzugang"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65" />
+
+        </TableRow>
+
+    </TableLayout>
+</ScrollView>

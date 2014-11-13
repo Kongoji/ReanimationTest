@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.RadioGroup;
@@ -311,7 +312,6 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
             hours = Integer.parseInt(parts[1]);
         }
 
-        Log.e("bam", String.valueOf(seconds + (minutes * 60) + (hours * 3600)));
         return seconds + (minutes * 60) + (hours * 3600);
     }
 
