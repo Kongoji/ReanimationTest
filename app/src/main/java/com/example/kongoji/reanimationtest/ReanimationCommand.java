@@ -29,5 +29,7 @@ public abstract class ReanimationCommand {
 
     public abstract void undo();
 
+    public abstract String getLogInfo();
+
 
 }

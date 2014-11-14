@@ -10,7 +10,9 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.SystemClock;
+import android.os.storage.StorageManager;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -49,6 +51,8 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     //actionbar description
     private Menu mMenu;
 
+    private ReanimationStorageManager storageManager;
+
 
     //Gestenerkennung
     private RotationGestureDetector detector;
@@ -82,8 +86,9 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reanimation_screen);
 
+        Log.e("zack",String.valueOf(Environment.getExternalStorageDirectory()));
         detector = new RotationGestureDetector(this);
-
+        storageManager = ReanimationStorageManager.getInstance(this);
 
         chronoDefi = (Chronometer) findViewById(R.id.chronoDefi);
         chronoDefi.setBase(SystemClock.elapsedRealtime());
@@ -146,22 +151,29 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
 
     public void incrementCounter(View view) {
-
+        ReanimationCommand command;
         if (view.getId() == R.id.defi) {
 
-            executeCommand(new ReanimationIncrementCommand((TextView) findViewById(R.id.counterDefi), chronoDefi));
+            command = new ReanimationIncrementCommand((TextView) findViewById(R.id.counterDefi), chronoDefi);
 
 
         } else {
+            command = new ReanimationIncrementCommand((TextView) findViewById(R.id.counterAdrenalin), chronoAdrenalin);
 
-            executeCommand(new ReanimationIncrementCommand((TextView) findViewById(R.id.counterAdrenalin), chronoAdrenalin));
 
         }
+        executeCommand(command);
+
     }
 
     public void logEvent(View view) {
+        ReanimationCommand command = new ReanimationToggleButtonCommand((Button) view);
+        executeCommand(command);
+    }
 
-        executeCommand(new ReanimationToggleButtonCommand((Button) view));
+    public void logSegmentedButtonEvent(View view, int i) {
+        ReanimationCommand command = new ReanimationSegmentedButtonCommand((SegmentedGroup) view, i);
+        executeCommand(command);
     }
 
 
@@ -273,13 +285,12 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     }
 
 
-    public void logSegmentedButtonEvent(View view, int i) {
-        executeCommand(new ReanimationSegmentedButtonCommand((SegmentedGroup) view, i));
-    }
+
 
     @Override
     public void executeCommand(ReanimationCommand command) {
         undoableOnlyOnetime = true;
+        storageManager.cache(command.getLogInfo());
         command.execute();
         commandStack.push(command);
     }

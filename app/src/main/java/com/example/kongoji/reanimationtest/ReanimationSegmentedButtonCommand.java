@@ -16,6 +16,7 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
     private RadioButton hdm;
     private RadioButton rosc;
     private RadioButton selectedButton;
+    private String logInfo;
 
 
     public ReanimationSegmentedButtonCommand(SegmentedGroup radio, int i) {
@@ -49,6 +50,7 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
 
             notifyUser(selectedButton.getContext(), selectedButton.getText() + " durchgeführt");
             Log.d("Event:" + String.valueOf(selectedButton.getText()), getTimeStamp());
+            logInfo = String.valueOf(getTimeStamp() + " : " + selectedButton.getText() + ";");
 
 
         } else {
@@ -89,5 +91,10 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
         }
 
         radio.setNonUserSelection(false);
+    }
+
+    @Override
+    public String getLogInfo() {
+        return logInfo;
     }
 }

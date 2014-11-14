@@ -14,6 +14,7 @@ public class ReanimationToggleButtonCommand extends ReanimationCommand {
 
     private Button button;
     private boolean isItOn = true;
+    private String logInfo;
 
     public ReanimationToggleButtonCommand(Button button) {
         this.button = button;
@@ -27,11 +28,8 @@ public class ReanimationToggleButtonCommand extends ReanimationCommand {
         this.button.setBackgroundResource(R.drawable.buttonshape_clicked);
         this.button.setTextColor(Color.WHITE);
         Log.d("Event:" + String.valueOf(button.getText()), getTimeStamp());
-
-
+        logInfo = String.valueOf(getTimeStamp() + " : " + button.getText() +";");
         notifyUser(button.getContext(), button.getText() + " durchgeführt");
-
-
     }
 
     @Override
@@ -42,6 +40,10 @@ public class ReanimationToggleButtonCommand extends ReanimationCommand {
         this.button.setTextColor(Color.BLACK);
         Log.d("Event:" + String.valueOf("Undo:" + button.getText()), getTimeStamp());
         notifyUser(button.getContext(), button.getText() + " rückgängig gemacht");
+    }
 
+    @Override
+    public String getLogInfo() {
+        return logInfo;
     }
 }

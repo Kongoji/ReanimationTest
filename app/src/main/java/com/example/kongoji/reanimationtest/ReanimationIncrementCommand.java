@@ -1,15 +1,10 @@
 package com.example.kongoji.reanimationtest;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Chronometer;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by danielreinhardt on 20.10.14.
@@ -20,6 +15,7 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
     private TextView counter;
     private int count = 0;
     private long time;
+    private String logInfo;
 
     private Chronometer chronometer;
 
@@ -42,6 +38,7 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
         chronometer.setTextColor(Color.BLACK);
 
         counter.setText(String.valueOf(++count));
+        logInfo = String.valueOf(getTimeStamp() + " : " + counter.getText()+";");
         Log.d("Event: " + String.valueOf(counter.getText()), getTimeStamp());
         Log.d("Event: " + String.valueOf(time), getTimeStamp());
 
@@ -74,5 +71,10 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
         }
 
 
+    }
+
+    @Override
+    public String getLogInfo() {
+        return logInfo;
     }
 }
