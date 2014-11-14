@@ -14,7 +14,7 @@ public abstract class ReanimationCommand {
 
     public String getTimeStamp() {
         Calendar c = Calendar.getInstance();
-        return c.get(Calendar.HOUR) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
+        return c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
     }
 
     public void notifyUser(Context context, String text){

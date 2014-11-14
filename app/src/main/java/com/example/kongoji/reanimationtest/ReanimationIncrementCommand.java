@@ -38,17 +38,15 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
         chronometer.setTextColor(Color.BLACK);
 
         counter.setText(String.valueOf(++count));
-        logInfo = String.valueOf(getTimeStamp() + " : " + counter.getText()+";");
-        Log.d("Event: " + String.valueOf(counter.getText()), getTimeStamp());
-        Log.d("Event: " + String.valueOf(time), getTimeStamp());
-
         chronometer.start();
 
         if (R.id.counterDefi == counter.getId()) {
             notifyUser(counter.getContext(), "Defibrillation " + counter.getText() + " durchgeführt");
+            logInfo = String.valueOf(getTimeStamp() + " : " + "Defibrillation" +";");
 
         } else {
             notifyUser(counter.getContext(), "Adrenalin " + counter.getText() + " gegeben");
+            logInfo = String.valueOf(getTimeStamp() + " : " + "Adrenalin" + ";");
         }
 
 

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.BatteryManager;
 import android.os.Bundle;
@@ -85,6 +86,8 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reanimation_screen);
+
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         Log.e("zack",String.valueOf(Environment.getExternalStorageDirectory()));
         detector = new RotationGestureDetector(this);
@@ -194,6 +197,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
     public void endReanimation() {
 
+        storageManager.save();
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Wie möchten Sie die Reanimation abschließen?");
@@ -269,7 +273,6 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
                         Context context = dialog.getContext();
                         Intent intenti = new Intent(context, DocumentationActivity.class);
                         startActivity(intenti);
-
                     }
                 })
                 .setNegativeButton("Einsatz beenden und später dokumentieren", new DialogInterface.OnClickListener() {
@@ -290,9 +293,10 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     @Override
     public void executeCommand(ReanimationCommand command) {
         undoableOnlyOnetime = true;
-        storageManager.cache(command.getLogInfo());
         command.execute();
         commandStack.push(command);
+        Log.e("LogInfo",command.getLogInfo());
+        storageManager.cache(command.getLogInfo());
     }
 
     @Override
