@@ -30,15 +30,10 @@ public class Fragment3 extends Fragment implements AdapterView.OnItemSelectedLis
 
         View rootView = inflater.inflate(R.layout.fragment_3, null);
 
-        SharedPreferences sharedPreferences = rootView.getContext().getSharedPreferences("Reanimationen", Context.MODE_PRIVATE);
+        sharedPreferences = rootView.getContext().getSharedPreferences("Reanimationen", Context.MODE_PRIVATE);
 
         EditText textfieldVerlaufSonstige = (EditText) rootView.findViewById(R.id.textfield_verlauf_sonstige);
 
-
-
-
-      //  final TableRow row = (TableRow) rootView.findViewById(R.id.verlaufListView);
-       //es fehlen noch styling
 
         final RelativeLayout rl=(RelativeLayout) rootView.findViewById(R.id.rl);
         final RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams
@@ -46,7 +41,8 @@ public class Fragment3 extends Fragment implements AdapterView.OnItemSelectedLis
         params.leftMargin=10;
         params.topMargin=150;
 
-        ListView list = new ListView(rootView.getContext());
+       // ListView list = new ListView(rootView.getContext());
+        ExpandableHeightListView list = new ExpandableHeightListView(rootView.getContext());
         li = new ArrayList<String>();
 
 
@@ -63,6 +59,7 @@ public class Fragment3 extends Fragment implements AdapterView.OnItemSelectedLis
         adp.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
         list.setAdapter(adp);
+        list.setExpanded(true);
 
         list.setLayoutParams(params);
 

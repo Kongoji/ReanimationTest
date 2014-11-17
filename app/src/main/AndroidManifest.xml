@@ -3,14 +3,14 @@
     package="com.example.kongoji.reanimationtest" >
 
     <application
-
         android:allowBackup="true"
         android:allowClearUserData="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="landscape"
         android:theme="@style/AppTheme" >
-        <uses-permission
-            android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
         <activity
             android:name=".ReanimationScreen"
             android:label="@string/app_name" >
@@ -28,6 +28,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ProtocolManagement"
+            android:label="@string/title_activity_protocol_management" >
         </activity>
     </application>
 

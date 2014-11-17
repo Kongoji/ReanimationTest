@@ -46,6 +46,14 @@ public class ReanimationStorageManager {
         return instance;
     }
 
+    public void delete(){
+        sharedPreferences = activity.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
+    }
+
 
 
     public void cache(String info) {

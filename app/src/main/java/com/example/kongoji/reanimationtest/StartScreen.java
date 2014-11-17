@@ -14,6 +14,9 @@ public class StartScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ReanimationStorageManager storeManager = ReanimationStorageManager.getInstance(this);
+        storeManager.delete();
+
         setContentView(R.layout.activity_start_screen);
 
         Button reaButton = (Button) findViewById(R.id.startReaScreen);
@@ -29,7 +32,7 @@ public class StartScreen extends Activity {
         docuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent docuIntent = new Intent(getApplicationContext(), DocumentationActivity.class);
+                Intent docuIntent = new Intent(getApplicationContext(), ProtocolManagement.class);
                 startActivity(docuIntent);
             }
         });

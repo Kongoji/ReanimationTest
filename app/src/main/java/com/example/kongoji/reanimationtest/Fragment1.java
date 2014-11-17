@@ -34,7 +34,6 @@ public class Fragment1 extends Fragment implements AdapterView.OnItemSelectedLis
 
 
         TextView bewusst = (TextView) rootView.findViewById(R.id.startID);
-        bewusst.requestFocus();
 
 
         Spinner spinnerBewusstsein = (Spinner) rootView.findViewById(R.id.spinner_bewusstsein);
