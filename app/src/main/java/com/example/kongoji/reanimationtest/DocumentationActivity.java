@@ -53,4 +53,8 @@ public class DocumentationActivity extends FragmentActivity  {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
 }

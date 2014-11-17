@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="radio_button_selected_color">#ff33b5e5</color>
-    <color name="radio_button_unselected_color">#fff3f3f3</color>
+    <color name="radio_button_selected_color">#99CC00</color>
+    <color name="radio_button_unselected_color">#BFBFBF</color>
     <color name ="tab_color">#33B5E5</color>
     <color name="tab_background_color">#F2F2F2</color>
 </resources>

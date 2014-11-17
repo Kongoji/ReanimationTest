@@ -1,9 +1,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     android:paddingLeft="50dp"
-    android:paddingRight="50dp"
-    android:background="@android:color/darker_gray">
+    android:paddingRight="50dp">
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
@@ -23,10 +23,10 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Massnahmen Reanimation"
-                android:textColor="#33B5E5"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
+                android:text="Massnahmen Reanimation"
+                android:textColor="#33B5E5"
                 android:textStyle="bold" />
 
         </TableRow>
@@ -315,7 +315,9 @@
                 android:id="@+id/spinner_monitoring_ekg"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -336,7 +338,9 @@
                 android:id="@+id/spinner_monitoring_12_kanal_ekg"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -358,7 +362,9 @@
                 android:id="@+id/spinner_monitoring_rr_man"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -379,7 +385,9 @@
                 android:id="@+id/spinner_monitoring_rr_oszil"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -400,7 +408,9 @@
                 android:id="@+id/spinner_monitoring_rr_invasiv"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -421,7 +431,9 @@
                 android:id="@+id/spinner_monitoring_pulsoximetrie"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
         </TableRow>
 
         <TableRow
@@ -441,7 +453,9 @@
                 android:id="@+id/spinner_monitoring_kapnometrie"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -462,7 +476,9 @@
                 android:id="@+id/spinner_monitoring_temperatur"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -483,7 +499,9 @@
                 android:id="@+id/spinner_monitoring_icp"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -504,7 +522,9 @@
                 android:id="@+id/spinner_monitoring_zvd"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -525,7 +545,9 @@
                 android:id="@+id/spinner_monitoring_picco"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -618,7 +640,9 @@
                 android:id="@+id/spinner_sonstiges_monitoring1"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
             <EditText
                 android:id="@+id/textfield_sonstiges_monitoring1"
@@ -637,7 +661,9 @@
                 android:id="@+id/spinner_sonstiges_monitoring2"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
             <EditText
                 android:id="@+id/textfield_sonstiges_monitoring2"
@@ -686,7 +712,9 @@
                 android:id="@+id/spinner_schrittmacher"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -707,7 +735,9 @@
                 android:id="@+id/spinner_iv_zugang"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -728,7 +758,9 @@
                 android:id="@+id/spinner_io_nadel"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -749,7 +781,9 @@
                 android:id="@+id/spinner_ab_medikation"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -770,7 +804,9 @@
                 android:id="@+id/spinner_zvk"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.325" />
+                android:layout_weight="0.325"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
             <TextView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
@@ -830,7 +866,9 @@
                 android:id="@+id/spinner_o2_insuff"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -851,7 +889,9 @@
                 android:id="@+id/spinner_niv_cpap_maske"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -872,7 +912,9 @@
                 android:id="@+id/spinner_orale_intubation"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -893,7 +935,9 @@
                 android:id="@+id/spinner_nasale_intubation"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -914,7 +958,9 @@
                 android:id="@+id/spinner_larynxmaske"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -935,7 +981,9 @@
                 android:id="@+id/spinner_larynxtubus"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
         </TableRow>
 
@@ -956,7 +1004,9 @@
                 android:id="@+id/spinner_tracheotomie"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.50" />
+                android:layout_weight="0.50"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
             <EditText
                 android:id="@+id/textfield_tracheotomie"
@@ -984,7 +1034,9 @@
                 android:id="@+id/spinner_magensonde"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.50" />
+                android:layout_weight="0.50"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
             <EditText
                 android:id="@+id/textfield_magensonde"
@@ -1012,7 +1064,9 @@
                 android:id="@+id/spinner_harnableitung"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.50" />
+                android:layout_weight="0.50"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
             <EditText
                 android:id="@+id/textfield_harnableitung"
@@ -1041,7 +1095,9 @@
                 android:id="@+id/spinner_thoraxdrainage"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.50" />
+                android:layout_weight="0.50"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_vorh_neu" />
 
             <EditText
                 android:id="@+id/textfield_thoraxdrainage"
@@ -1127,7 +1183,9 @@
                 android:id="@+id/spinner_komplikation_intubation"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_schwierig_unmoeglich" />
 
         </TableRow>
 
@@ -1148,7 +1206,9 @@
                 android:id="@+id/spinner_komplikation_ivzugang"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_schwierig_unmoeglich" />
 
         </TableRow>
 

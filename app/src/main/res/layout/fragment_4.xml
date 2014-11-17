@@ -95,7 +95,9 @@
                 android:id="@+id/spinner_uebergabe_puls_reg"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.26" />
+                android:layout_weight="0.26"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_ja_nein"/>
 
         </TableRow>
 
@@ -169,7 +171,9 @@
                 android:id="@+id/spinner_uebergabe_temperatur"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.52" />
+                android:layout_weight="0.52"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_axil_rekt"/>
 
         </TableRow>
 
@@ -669,7 +673,9 @@
                 android:id="@+id/spinner_uebergabe_schmerzen"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.325" />
+                android:layout_weight="0.325"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_schmerzen"/>
 
             <TextView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"

@@ -81,6 +81,8 @@ public class SegmentedGroup extends RadioGroup {
     }
 
 
+
+
     public void updateBackground() {
         int count = super.getChildCount();
         if (count > 1) {
@@ -106,18 +108,21 @@ public class SegmentedGroup extends RadioGroup {
 
     private void updateBackground(View view, int checked, int unchecked) {
         //Set text color
+
+
         ColorStateList colorStateList = new ColorStateList(new int[][]{
                 {android.R.attr.state_pressed},
                 {-android.R.attr.state_pressed, -android.R.attr.state_checked},
                 {-android.R.attr.state_pressed, android.R.attr.state_checked}},
-                new int[]{Color.GRAY, mTintColor, mCheckedTextColor});
+                new int[]{Color.GRAY, Color.BLACK, mCheckedTextColor});
         ((Button) view).setTextColor(colorStateList);
 
         //Redraw with tint color
         Drawable checkedDrawable = resources.getDrawable(checked).mutate();
         Drawable uncheckedDrawable = resources.getDrawable(unchecked).mutate();
         ((GradientDrawable) checkedDrawable).setColor(mTintColor);
-        ((GradientDrawable) uncheckedDrawable).setStroke(oneDP, mTintColor);
+        ((GradientDrawable) checkedDrawable).setStroke(oneDP, Color.DKGRAY);
+       ((GradientDrawable) uncheckedDrawable).setStroke(oneDP, Color.DKGRAY);
 
         //Create drawable
         StateListDrawable stateListDrawable = new StateListDrawable();

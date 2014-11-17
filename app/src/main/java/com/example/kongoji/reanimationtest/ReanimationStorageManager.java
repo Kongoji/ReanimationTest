@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Stack;
 
 /**
  * Created by Kongoji on 14.11.14.
@@ -24,6 +25,8 @@ public class ReanimationStorageManager {
     private static ReanimationStorageManager instance;
     private Activity activity;
     private String data;
+
+    private Stack<String> input;
 
     private FileOutputStream stream;
     private StringBuilder builder;
@@ -39,6 +42,7 @@ public class ReanimationStorageManager {
     private ReanimationStorageManager(Activity activity) {
         this.builder = new StringBuilder();
         this.activity = activity;
+        input = new Stack<String>();
     }
 
     public static ReanimationStorageManager getInstance(Activity activity) {
@@ -57,8 +61,11 @@ public class ReanimationStorageManager {
 
 
     public void cache(String info) {
-        builder.append(info);
-       // builder.append("\n");
+       input.push(info);
+    }
+
+    public void undoCache(){
+        input.pop();
     }
 
 
@@ -68,7 +75,12 @@ public class ReanimationStorageManager {
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(prefName, builder.toString());
+        for (String temp : input){
+            builder.append(temp);
+        }
+
+        editor.putString(prefName,builder.toString());
+       // editor.putString(prefName, builder.toString());
         editor.commit();
 
     }

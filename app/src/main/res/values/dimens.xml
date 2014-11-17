@@ -3,22 +3,4 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="radio_button_conner_radius">5dp</dimen>
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
-   <string-array name="bewusstsein">
-       <item>Bla</item>
-       <item>Bla2</item>
-       <item>Bla3</item>
-       <item>Bla4</item>
-       <item>Bla5</item>
-   </string-array>
-
 </resources>

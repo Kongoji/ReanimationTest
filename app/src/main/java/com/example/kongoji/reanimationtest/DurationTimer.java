@@ -14,10 +14,15 @@ public class DurationTimer {
     private final ActionBar bar;
     private Handler mHandler = new Handler();
     private long startTime;
+
+    public long getElapsedTime() {
+        return elapsedTime;
+    }
+
     private long elapsedTime;
     private final int REFRESH_RATE = 100;
     private String minutes, seconds;
-    private long secs, mins;
+    private long secs;
 
 
     public DurationTimer(ActionBar bar) {
@@ -35,7 +40,11 @@ public class DurationTimer {
 
     public void resetTimer() {
         mHandler.removeCallbacks(startTimer);
-        bar.setTitle("Reanimation (Dauer: " + "00" + " Minuten)");
+        bar.setTitle("Reanimation (Einsatz läuft seit: " + "00" + " Minuten)");
+    }
+
+    public void stopTimer(){
+        mHandler.removeCallbacks(startTimer);
     }
 
 
@@ -47,9 +56,10 @@ public class DurationTimer {
         }
     };
 
+
     private void updateTimer(float time) {
         secs = (long) (time / 1000);
-        mins = (long) ((time / 1000) / 60);
+        long mins = (long) ((time / 1000) / 60);
 
 
 		/* Convert the seconds to String
@@ -78,7 +88,7 @@ public class DurationTimer {
 
 
 		/* Setting the timer text to the elapsed time */
-        bar.setTitle("Reanimation (Dauer: " + minutes + " Minuten)");
+        bar.setTitle("Reanimation (Einsatz läuft seit: " + minutes + " Minuten)");
 
 
     }

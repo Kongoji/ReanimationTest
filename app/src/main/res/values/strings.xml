@@ -8,10 +8,91 @@
     <string name="title_documentationscreen_detail">DocumentationScreen Detail</string>
     <string name="title_activity_documentation">Einsatzdokumentation</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_start_screen">ReaDocApp</string>
+    <string name="title_activity_start_screen">DoRea</string>
     <string name="welcome_rea">Mit der Reanimation beginnen</string>
     <string name="welcome_docu">Ich möchte lediglich dokumentieren</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_protocol_management">ProtocolManagement</string>
+
+
+    <string-array name="array_bewusstsein">
+        <item>k.A.</item>
+        <item>wach</item>
+        <item>Reaktion auf Anruf</item>
+        <item>Reaktion auf Schmerz</item>
+        <item>keine Reaktion</item>
+        <item>Analogsediert</item>
+    </string-array>
+
+
+    <string-array name="array_kA_eng_mittel_weit">
+        <item>k.A.</item>
+        <item>eng</item>
+        <item>mittel</item>
+        <item>weit</item>
+        <item>entrundet</item>
+        <item>nicht beurteilbar</item>
+    </string-array>
+
+    <string-array name="array_kA_links_rechts">
+        <item>k.A.</item>
+        <item>links</item>
+        <item>rechts</item>
+    </string-array>
+
+    <string-array name="array_ja_nein">
+        <item>ja</item>
+        <item>nein</item>
+    </string-array>
+
+    <string-array name="array_normal_leichtVermindert_starkVermindert">
+        <item>normal.</item>
+        <item>leicht vermindert</item>
+        <item>stark vermindert</item>
+    </string-array>
+
+
+    <string-array name="array_kA_ja_nein">
+        <item>k.A..</item>
+        <item>ja</item>
+        <item>nein</item>
+    </string-array>
+
+    <string-array name="array_kA_axil_rekt">
+        <item>k.A.</item>
+        <item>axil.</item>
+        <item>rekt.</item>
+        <item>lyp.</item>
+        <item>oral</item>
+    </string-array>
+
+
+    <string-array name="array_schmerzen">
+        <item>1.</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+
+    <string-array name="array_kA_vorh_neu">
+        <item>k.A.</item>
+        <item>vorh.</item>
+        <item>neu</item>
+    </string-array>
+
+    <string-array name="array_kA_schwierig_unmoeglich">
+        <item>k.A.</item>
+        <item>schwierig</item>
+        <item>unmoeglich</item>
+    </string-array>
+
+
 
 </resources>

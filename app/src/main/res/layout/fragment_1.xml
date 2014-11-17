@@ -32,7 +32,9 @@
                 android:id="@+id/spinner_bewusstsein"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_bewusstsein"/>
 
         </TableRow>
 
@@ -54,7 +56,9 @@
                 android:id="@+id/spinner_pupille_links"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_eng_mittel_weit"/>
 
         </TableRow>
 
@@ -75,7 +79,9 @@
                 android:id="@+id/spinner_pupille_rechts"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_eng_mittel_weit"/>
 
         </TableRow>
 
@@ -96,7 +102,9 @@
                 android:id="@+id/spinner_keine_lichtreaktion"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_links_rechts"/>
 
         </TableRow>
 
@@ -117,7 +125,9 @@
                 android:id="@+id/spinner_corneareflex"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_links_rechts"/>
 
         </TableRow>
 
@@ -138,7 +148,9 @@
                 android:id="@+id/spinner_meningismus"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_ja_nein"/>
 
         </TableRow>
 
@@ -228,7 +240,9 @@
                 android:id="@+id/spinner_arm_links"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_normal_leichtVermindert_starkVermindert"/>
 
         </TableRow>
 
@@ -249,7 +263,9 @@
                 android:id="@+id/spinner_arm_rechts"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_normal_leichtVermindert_starkVermindert"/>
 
         </TableRow>
 
@@ -270,7 +286,9 @@
                 android:id="@+id/spinner_bein_links"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_normal_leichtVermindert_starkVermindert"/>
 
         </TableRow>
 
@@ -291,7 +309,9 @@
                 android:id="@+id/spinner_bein_rechts"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_normal_leichtVermindert_starkVermindert"/>
 
         </TableRow>
 
@@ -382,7 +402,9 @@
                 android:id="@+id/spinner_puls_reg"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.26" />
+                android:layout_weight="0.26"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_ja_nein"/>
 
         </TableRow>
 
@@ -454,7 +476,9 @@
                 android:id="@+id/spinner_temperatur"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.52" />
+                android:layout_weight="0.52"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_kA_axil_rekt"/>
 
         </TableRow>
 
@@ -1027,7 +1051,9 @@
                 android:id="@+id/spinner_schmerzen"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="0.325" />
+                android:layout_weight="0.325"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_schmerzen"/>
 
             <TextView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"

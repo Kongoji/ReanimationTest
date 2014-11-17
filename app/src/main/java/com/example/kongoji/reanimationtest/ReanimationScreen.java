@@ -13,7 +13,6 @@ import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
-import android.os.storage.StorageManager;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -21,7 +20,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.RadioGroup;
@@ -33,24 +31,18 @@ import java.util.Calendar;
 import java.util.Stack;
 
 
-public class ReanimationScreen extends FragmentActivity implements CommandManager, RotationGestureDetector.OnRotationGestureListener {
+public class ReanimationScreen extends StartScreen implements CommandManager, RotationGestureDetector.OnRotationGestureListener {
 
     //only one undoable function
     private boolean undoableOnlyOnetime = true;
 
-    private static final int  TIME_FOR_DEFI_TIMER_COLOR_CHANGE = 120;
+    private static final int TIME_FOR_DEFI_TIMER_COLOR_CHANGE = 120;
     private static final int TIME_FOR_ADRENALIN_TIMER_COLOR_CHANGE = 180;
 
-    //is App still running?
-    private boolean stopped = false;
-    //is REA still ongoing?
-    private boolean isDone = false;
     //timer tasks
     private Chronometer chronoDefi;
     private Chronometer chronoAdrenalin;
-    private DurationTimer chronoDuration;
-    //actionbar description
-    private Menu mMenu;
+   // private DurationTimer chronoDuration;
 
     private ReanimationStorageManager storageManager;
 
@@ -61,8 +53,9 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     private Stack<ReanimationCommand> commandStack = new Stack<ReanimationCommand>();
 
 
+    //TUDO: Muss noch in den Start Screen
     //used for handling battery status triggered arrival
-    private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+   /* private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
 
@@ -79,7 +72,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
             // Turn progressbar on
             chronoDuration.startTimer();
         }
-    }
+    }*/
 
 
     @Override
@@ -89,7 +82,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        Log.e("zack",String.valueOf(Environment.getExternalStorageDirectory()));
+        Log.e("zack", String.valueOf(Environment.getExternalStorageDirectory()));
         detector = new RotationGestureDetector(this);
         storageManager = ReanimationStorageManager.getInstance(this);
 
@@ -121,7 +114,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
 
         final SegmentedGroup segmented2 = (SegmentedGroup) findViewById(R.id.segmented2);
-        segmented2.setTintColor(Color.DKGRAY);
+        // segmented2.setTintColor(Color.DKGRAY);
 
 
         segmented2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -139,18 +132,17 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
         });
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.reanimation_screen, menu);
-        this.mMenu = menu;
         chronoDuration = new DurationTimer(this.getActionBar());
 
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 
         this.getApplicationContext().registerReceiver(mBroadcastReceiver, ifilter);
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
 
     public void incrementCounter(View view) {
@@ -185,7 +177,6 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
         int id = item.getItemId();
 
-
         if (id == R.id.reaabruch) {
             endReanimation();
             return true;
@@ -197,22 +188,21 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
     public void endReanimation() {
 
-        storageManager.save();
-
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Wie möchten Sie die Reanimation abschließen?");
 
         Calendar c = Calendar.getInstance();
+        final String timeStamp = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
 
 
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("Patient übergeben", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // Event loggen
-                        //  isDone = true;
+
+                        storageManager.cache(timeStamp + " : " + "Patient übergeben;");
                         startDocumentation();
-                        //MainActivity.this.finish();
+
                     }
                 })
                 .setNeutralButton("Reanimation fortsetzen", new DialogInterface.OnClickListener() {
@@ -224,9 +214,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
 
                 .setNegativeButton("Reanimation des Patienten abbrechen", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // if this button is clicked, just close
-                        // the dialog box and do nothing
-                        //  isDone = true;
+                        storageManager.cache(timeStamp + " : " + "Reanimation des Patienten abgebrochen;");
                         startDocumentation();
                     }
                 });
@@ -246,33 +234,35 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     @Override
     public void OnRotation(RotationGestureDetector rotationDetector) {
         float angle = rotationDetector.getAngle();
-        Log.d("RotationGestureDetector", "Rotation: " + Float.toString(angle));
         if (angle > 45) {
             undoCommand();
         } else {
             return;
         }
-
-
     }
 
 
     public void startDocumentation() {
 
-
+        Calendar c = Calendar.getInstance();
+        String timeStamp = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
+        storageManager.cache(timeStamp + " : " + "Einsatz wurde beendet;");
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Möchten Sie ihren Einsatz gleich dokumentieren?");
-
 
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("Einsatz dokumentieren", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int id) {
-                        //start documentation
+                        //start documentation and kill threads before
+                        chronoDuration.stopTimer();
+                        chronoAdrenalin.stop();
+                        chronoDefi.stop();
                         Dialog dialog = (Dialog) dialogInterface;
                         Context context = dialog.getContext();
                         Intent intenti = new Intent(context, DocumentationActivity.class);
                         startActivity(intenti);
+                        finish();
                     }
                 })
                 .setNegativeButton("Einsatz beenden und später dokumentieren", new DialogInterface.OnClickListener() {
@@ -283,11 +273,11 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
                     }
                 });
 
+
+        storageManager.save();
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
     }
-
-
 
 
     @Override
@@ -295,7 +285,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
         undoableOnlyOnetime = true;
         command.execute();
         commandStack.push(command);
-        Log.e("LogInfo",command.getLogInfo());
+        Log.e("LogInfo", command.getLogInfo());
         storageManager.cache(command.getLogInfo());
     }
 
@@ -305,6 +295,7 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
             undoableOnlyOnetime = false;
             ReanimationCommand undoableCommand = commandStack.pop();
             undoableCommand.undo();
+            storageManager.undoCache();
         }
     }
 
@@ -333,5 +324,8 @@ public class ReanimationScreen extends FragmentActivity implements CommandManage
     public void changeTimeTextColor(Chronometer chronometer) {
         chronometer.setTextColor(Color.parseColor("#FF4444"));
     }
-}
 
+    @Override
+    public void onBackPressed() {
+    }
+}

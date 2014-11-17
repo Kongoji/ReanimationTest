@@ -43,7 +43,7 @@ Since 0.0.4
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="0"
-                android:textSize="50dp" />
+                android:textSize="70dp" />
 
             <Chronometer
                 android:id="@+id/chronoDefi"
@@ -53,7 +53,7 @@ Since 0.0.4
                 android:format="%s"
                 android:gravity="center"
                 android:text="00:00"
-                android:textSize="50dp" />
+                android:textSize="80dp" />
         </TableRow>
 
         <TableRow
@@ -81,7 +81,7 @@ Since 0.0.4
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="0"
-                android:textSize="50dp" />
+                android:textSize="70dp" />
 
             <Chronometer
                 android:id="@+id/chronoAdrenalin"
@@ -91,7 +91,7 @@ Since 0.0.4
                 android:format="%s"
                 android:gravity="center"
                 android:text="00:00"
-                android:textSize="50dp" />
+                android:textSize="80dp" />
         </TableRow>
 
         <TableRow
