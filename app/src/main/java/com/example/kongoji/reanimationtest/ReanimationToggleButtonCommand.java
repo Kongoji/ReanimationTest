@@ -1,11 +1,8 @@
 package com.example.kongoji.reanimationtest;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
 import android.widget.Button;
-
-import java.util.Calendar;
 
 /**
  * Created by danielreinhardt on 20.10.14.
@@ -27,8 +24,8 @@ public class ReanimationToggleButtonCommand extends ReanimationCommand {
         this.button.setEnabled(false);
         this.button.setBackgroundResource(R.drawable.buttonshape_clicked);
         this.button.setTextColor(Color.WHITE);
-        Log.d("Event:" + String.valueOf(button.getText()), getTimeStamp());
-        logInfo = String.valueOf(getTimeStamp() + " : " + button.getText() +";");
+        Log.d("Event:" + String.valueOf(button.getText()), TimeStampGenerator.getTimeStamp());
+        logInfo = String.valueOf(TimeStampGenerator.getTimeStamp() + " : " + button.getText() + ";");
         notifyUser(button.getContext(), button.getText() + " durchgeführt");
     }
 
@@ -38,7 +35,7 @@ public class ReanimationToggleButtonCommand extends ReanimationCommand {
         this.button.setEnabled(isItOn);
         this.button.setBackgroundResource(R.drawable.buttonshape);
         this.button.setTextColor(Color.BLACK);
-        Log.d("Event:" + String.valueOf("Undo:" + button.getText()), getTimeStamp());
+        Log.d("Event:" + String.valueOf("Undo:" + button.getText()), TimeStampGenerator.getTimeStamp());
         notifyUser(button.getContext(), button.getText() + " rückgängig gemacht");
     }
 

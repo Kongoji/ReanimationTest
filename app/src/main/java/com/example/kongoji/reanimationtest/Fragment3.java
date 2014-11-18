@@ -10,16 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TableRow;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import static android.widget.RelativeLayout.*;
 
 public class Fragment3 extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -32,16 +27,13 @@ public class Fragment3 extends Fragment implements AdapterView.OnItemSelectedLis
 
         sharedPreferences = rootView.getContext().getSharedPreferences("Reanimationen", Context.MODE_PRIVATE);
 
-        EditText textfieldVerlaufSonstige = (EditText) rootView.findViewById(R.id.textfield_verlauf_sonstige);
+        final RelativeLayout rl = (RelativeLayout) rootView.findViewById(R.id.rl);
+        final RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams
+                ((int) RelativeLayout.LayoutParams.WRAP_CONTENT, (int) RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.leftMargin = 10;
+        params.topMargin = 150;
 
-
-        final RelativeLayout rl=(RelativeLayout) rootView.findViewById(R.id.rl);
-        final RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams
-                ((int) RelativeLayout.LayoutParams.WRAP_CONTENT,(int) RelativeLayout.LayoutParams.WRAP_CONTENT);
-        params.leftMargin=10;
-        params.topMargin=150;
-
-       // ListView list = new ListView(rootView.getContext());
+        // ListView list = new ListView(rootView.getContext());
         ExpandableHeightListView list = new ExpandableHeightListView(rootView.getContext());
         li = new ArrayList<String>();
 
@@ -54,8 +46,8 @@ public class Fragment3 extends Fragment implements AdapterView.OnItemSelectedLis
         }
 
 
-        ArrayAdapter<String> adp=new ArrayAdapter<String> (rootView.getContext(),
-                android.R.layout.simple_dropdown_item_1line,li);
+        ArrayAdapter<String> adp = new ArrayAdapter<String>(rootView.getContext(),
+                android.R.layout.simple_dropdown_item_1line, li);
         adp.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
         list.setAdapter(adp);

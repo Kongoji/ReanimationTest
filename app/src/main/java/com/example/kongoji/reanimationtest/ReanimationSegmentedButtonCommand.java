@@ -1,9 +1,7 @@
 package com.example.kongoji.reanimationtest;
 
-import android.graphics.Color;
 import android.util.Log;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup;
 
@@ -49,12 +47,12 @@ public class ReanimationSegmentedButtonCommand extends ReanimationCommand {
             radio.setCounter(radio.getCounter() + 1);
 
             notifyUser(selectedButton.getContext(), selectedButton.getText() + " durchgeführt");
-            Log.d("Event:" + String.valueOf(selectedButton.getText()), getTimeStamp());
-            logInfo = String.valueOf(getTimeStamp() + " : " + selectedButton.getText() + ";");
+            Log.d("Event:" + String.valueOf(selectedButton.getText()), TimeStampGenerator.getTimeStamp());
+            logInfo = String.valueOf(TimeStampGenerator.getTimeStamp() + " : " + selectedButton.getText() + ";");
 
 
         } else {
-            Log.d("Event:" + "Nether HDM or ROSC selected", getTimeStamp());
+            Log.d("Event:" + "Nether HDM or ROSC selected", TimeStampGenerator.getTimeStamp());
         }
     }
 

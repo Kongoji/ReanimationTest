@@ -2,18 +2,14 @@ package com.example.kongoji.reanimationtest;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,7 +23,6 @@ import android.widget.TextView;
 
 import com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup;
 
-import java.util.Calendar;
 import java.util.Stack;
 
 
@@ -42,7 +37,6 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
     //timer tasks
     private Chronometer chronoDefi;
     private Chronometer chronoAdrenalin;
-   // private DurationTimer chronoDuration;
 
     private ReanimationStorageManager storageManager;
 
@@ -51,28 +45,6 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
     private RotationGestureDetector detector;
     //UNDO-Stack
     private Stack<ReanimationCommand> commandStack = new Stack<ReanimationCommand>();
-
-
-    //TUDO: Muss noch in den Start Screen
-    //used for handling battery status triggered arrival
-   /* private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-            boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
-                    status == BatteryManager.BATTERY_STATUS_FULL;
-            ReanimationScreen.this.receivedBroadcast(intent, isCharging);
-        }
-    };
-
-    //start timer when not plugged in
-    private void receivedBroadcast(Intent intent, boolean charged) {
-        if (charged == false) {
-            // Turn progressbar on
-            chronoDuration.startTimer();
-        }
-    }*/
 
 
     @Override
@@ -132,19 +104,6 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
         });
     }
 
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.reanimation_screen, menu);
-        chronoDuration = new DurationTimer(this.getActionBar());
-
-        IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-
-        this.getApplicationContext().registerReceiver(mBroadcastReceiver, ifilter);
-        return super.onCreateOptionsMenu(menu);
-    }*/
-
-
     public void incrementCounter(View view) {
         ReanimationCommand command;
         if (view.getId() == R.id.defi) {
@@ -191,16 +150,13 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Wie möchten Sie die Reanimation abschließen?");
 
-        Calendar c = Calendar.getInstance();
-        final String timeStamp = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
-
 
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("Patient übergeben", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        storageManager.cache(timeStamp + " : " + "Patient übergeben;");
+                        storageManager.cache(TimeStampGenerator.getTimeStamp() + " : " + "Patient übergeben;");
                         startDocumentation();
 
                     }
@@ -214,7 +170,7 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
 
                 .setNegativeButton("Reanimation des Patienten abbrechen", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        storageManager.cache(timeStamp + " : " + "Reanimation des Patienten abgebrochen;");
+                        storageManager.cache(TimeStampGenerator.getTimeStamp() + " : " + "Reanimation des Patienten abgebrochen;");
                         startDocumentation();
                     }
                 });
@@ -244,9 +200,8 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
 
     public void startDocumentation() {
 
-        Calendar c = Calendar.getInstance();
-        String timeStamp = c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
-        storageManager.cache(timeStamp + " : " + "Einsatz wurde beendet;");
+
+        storageManager.cache(TimeStampGenerator.getTimeStamp() + " : " + "Einsatz wurde beendet;");
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Möchten Sie ihren Einsatz gleich dokumentieren?");
 
@@ -255,7 +210,7 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
                 .setPositiveButton("Einsatz dokumentieren", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int id) {
                         //start documentation and kill threads before
-                        chronoDuration.stopTimer();
+                        DurationTimer.getInstance().stopTimer();
                         chronoAdrenalin.stop();
                         chronoDefi.stop();
                         Dialog dialog = (Dialog) dialogInterface;
@@ -328,4 +283,14 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
     @Override
     public void onBackPressed() {
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.reanimation_screen, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
 }

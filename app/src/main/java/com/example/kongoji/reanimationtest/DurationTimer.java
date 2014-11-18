@@ -2,16 +2,13 @@ package com.example.kongoji.reanimationtest;
 
 import android.app.ActionBar;
 import android.os.Handler;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 /**
  * Created by Kongoji on 17.10.14.
  */
 public class DurationTimer {
 
-    private final ActionBar bar;
+    private ActionBar bar;
     private Handler mHandler = new Handler();
     private long startTime;
 
@@ -24,14 +21,36 @@ public class DurationTimer {
     private String minutes, seconds;
     private long secs;
 
+    public boolean isRunning() {
+        return running;
+    }
 
-    public DurationTimer(ActionBar bar) {
+    private boolean running = false;
+
+    private DurationTimer() {
+    }
+
+    private static DurationTimer instance;
+
+    public static DurationTimer getInstance() {
+        if (instance == null) {
+            instance = new DurationTimer();
+        }
+        return instance;
+    }
+
+    public void setDestination(ActionBar bar) {
         this.bar = bar;
     }
 
 
-    public void startTimer() {
+    // public DurationTimer(ActionBar bar) {
+    //    this.bar = bar;
+    //  }
 
+
+    public void startTimer() {
+        running = true;
         startTime = System.currentTimeMillis();
         mHandler.removeCallbacks(startTimer);
         mHandler.postDelayed(startTimer, 0);
@@ -40,10 +59,11 @@ public class DurationTimer {
 
     public void resetTimer() {
         mHandler.removeCallbacks(startTimer);
-        bar.setTitle("Reanimation (Einsatz läuft seit: " + "00" + " Minuten)");
+        //bar.setTitle("Reanimation (Einsatz läuft seit: " + "00" + " Minuten)");
     }
 
-    public void stopTimer(){
+    public void stopTimer() {
+        running = false;
         mHandler.removeCallbacks(startTimer);
     }
 
@@ -88,8 +108,8 @@ public class DurationTimer {
 
 
 		/* Setting the timer text to the elapsed time */
-        bar.setTitle("Reanimation (Einsatz läuft seit: " + minutes + " Minuten)");
-
+        bar.setTitle("DoRea (Einsatz läuft seit: " + seconds + " Minuten)");
+        //return "Reanimation (Einsatz läuft seit: " + minutes + " Minuten";
 
     }
 }
