@@ -10,8 +10,10 @@ import java.util.Calendar;
 public class TimeStampGenerator {
 
     public static String getTimeStamp() {
-        Calendar c = Calendar.getInstance();
-        return c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
+
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        return dateFormat.format(cal.getTime());
     }
 
     public static String getDate() {

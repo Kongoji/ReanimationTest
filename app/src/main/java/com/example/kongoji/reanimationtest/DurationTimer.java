@@ -43,12 +43,6 @@ public class DurationTimer {
         this.bar = bar;
     }
 
-
-    // public DurationTimer(ActionBar bar) {
-    //    this.bar = bar;
-    //  }
-
-
     public void startTimer() {
         running = true;
         startTime = System.currentTimeMillis();
@@ -56,15 +50,12 @@ public class DurationTimer {
         mHandler.postDelayed(startTimer, 0);
     }
 
-
-    public void resetTimer() {
-        mHandler.removeCallbacks(startTimer);
-        //bar.setTitle("Reanimation (Einsatz läuft seit: " + "00" + " Minuten)");
-    }
-
     public void stopTimer() {
         running = false;
         mHandler.removeCallbacks(startTimer);
+        if (bar != null) {
+            bar.setTitle(bar.getThemedContext().getString(R.string.title_activity_start_screen));
+        }
     }
 
 
@@ -76,8 +67,44 @@ public class DurationTimer {
         }
     };
 
+    public String getElapsedTimeAsString() {
+
+
+        secs = (long) (elapsedTime / 1000);
+        long mins = (long) ((elapsedTime / 1000) / 60);
+
+
+		/* Convert the seconds to String
+         * and format to ensure it has
+		 * a leading zero when required
+		 */
+        secs = secs % 60;
+        seconds = String.valueOf(secs);
+        if (secs == 0) {
+            seconds = "00";
+        }
+        if (secs < 10 && secs > 0) {
+            seconds = "0" + seconds;
+        }
+
+		/* Convert the minutes to String and format the String */
+
+        mins = mins % 60;
+        minutes = String.valueOf(mins);
+        if (mins == 0) {
+            minutes = "00";
+        }
+        if (mins < 10 && mins > 0) {
+            minutes = "0" + minutes;
+        }
+
+
+        return minutes + ":" + seconds;
+    }
+
 
     private void updateTimer(float time) {
+
         secs = (long) (time / 1000);
         long mins = (long) ((time / 1000) / 60);
 
@@ -107,8 +134,9 @@ public class DurationTimer {
         }
 
 
+
 		/* Setting the timer text to the elapsed time */
-        bar.setTitle("DoRea (Einsatz läuft seit: " + seconds + " Minuten)");
+        bar.setTitle(bar.getThemedContext().getString(R.string.title_activity_start_screen) + " (Einsatz läuft seit: " + minutes + " Minuten)");
         //return "Reanimation (Einsatz läuft seit: " + minutes + " Minuten";
 
     }

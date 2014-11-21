@@ -19,8 +19,8 @@ public abstract class BaseActivity extends FragmentActivity {
         public void onReceive(Context context, Intent intent) {
 
             int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-            boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
-                    status == BatteryManager.BATTERY_STATUS_FULL;
+            boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING;
+            //||status == BatteryManager.BATTERY_STATUS_FULL
             receivedBroadcast(intent, isCharging);
         }
     };

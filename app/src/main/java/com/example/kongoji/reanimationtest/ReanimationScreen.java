@@ -26,7 +26,7 @@ import com.example.kongoji.reanimationtest.segmentedButton.SegmentedGroup;
 import java.util.Stack;
 
 
-public class ReanimationScreen extends StartScreen implements CommandManager, RotationGestureDetector.OnRotationGestureListener {
+public class ReanimationScreen extends BaseActivity implements CommandManager, RotationGestureDetector.OnRotationGestureListener {
 
     //only one undoable function
     private boolean undoableOnlyOnetime = true;
@@ -51,6 +51,8 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reanimation_screen);
+
+        DurationTimer.getInstance().setDestination(this.getActionBar());
 
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
@@ -102,6 +104,11 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
 
             }
         });
+    }
+
+    @Override
+    public void receivedBroadcast(Intent intent, boolean charged) {
+
     }
 
     public void incrementCounter(View view) {
@@ -198,21 +205,23 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
     }
 
 
+
+
     public void startDocumentation() {
 
 
-        storageManager.cache(TimeStampGenerator.getTimeStamp() + " : " + "Einsatz wurde beendet;");
+        storageManager.cache(TimeStampGenerator.getTimeStamp() + " : " + "Einsatz wurde nach " + DurationTimer.getInstance().getElapsedTimeAsString() +" Minuten beendet;");
+        DurationTimer.getInstance().stopTimer();
+        chronoAdrenalin.stop();
+        chronoDefi.stop();
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Möchten Sie ihren Einsatz gleich dokumentieren?");
-
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("Einsatz dokumentieren", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int id) {
                         //start documentation and kill threads before
-                        DurationTimer.getInstance().stopTimer();
-                        chronoAdrenalin.stop();
-                        chronoDefi.stop();
+
                         Dialog dialog = (Dialog) dialogInterface;
                         Context context = dialog.getContext();
                         Intent intenti = new Intent(context, DocumentationActivity.class);
@@ -224,7 +233,7 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
                     public void onClick(DialogInterface dialog, int id) {
                         // if this button is clicked, just close
                         // the dialog box and do nothing
-                        dialog.cancel();
+                       finish();
                     }
                 });
 
@@ -282,6 +291,7 @@ public class ReanimationScreen extends StartScreen implements CommandManager, Ro
 
     @Override
     public void onBackPressed() {
+        endReanimation();
     }
 
     @Override

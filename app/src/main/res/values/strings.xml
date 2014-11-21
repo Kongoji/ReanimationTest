@@ -13,7 +13,10 @@
     <string name="welcome_docu">Ich möchte lediglich dokumentieren</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_protocol_management">ProtocolManagement</string>
-
+    <string name="ankunft">Ankunft beim Patienten bestätigen</string>
+    <string name="alteEinsatzprotokolle">Einsatzprotokolle anzeigen</string>
+    <string name="einsatzStarten">Neuen Einsatz beginnen</string>
+    <string name="slidePatient">Beim Patient angekommen</string>
 
     <string-array name="array_bewusstsein">
         <item>k.A.</item>
@@ -23,8 +26,6 @@
         <item>keine Reaktion</item>
         <item>Analogsediert</item>
     </string-array>
-
-
     <string-array name="array_kA_eng_mittel_weit">
         <item>k.A.</item>
         <item>eng</item>
@@ -33,31 +34,25 @@
         <item>entrundet</item>
         <item>nicht beurteilbar</item>
     </string-array>
-
     <string-array name="array_kA_links_rechts">
         <item>k.A.</item>
         <item>links</item>
         <item>rechts</item>
     </string-array>
-
     <string-array name="array_ja_nein">
         <item>ja</item>
         <item>nein</item>
     </string-array>
-
     <string-array name="array_normal_leichtVermindert_starkVermindert">
         <item>normal.</item>
         <item>leicht vermindert</item>
         <item>stark vermindert</item>
     </string-array>
-
-
     <string-array name="array_kA_ja_nein">
         <item>k.A..</item>
         <item>ja</item>
         <item>nein</item>
     </string-array>
-
     <string-array name="array_kA_axil_rekt">
         <item>k.A.</item>
         <item>axil.</item>
@@ -65,8 +60,6 @@
         <item>lyp.</item>
         <item>oral</item>
     </string-array>
-
-
     <string-array name="array_schmerzen">
         <item>1.</item>
         <item>2</item>
@@ -79,20 +72,17 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-
-
     <string-array name="array_kA_vorh_neu">
         <item>k.A.</item>
         <item>vorh.</item>
         <item>neu</item>
     </string-array>
-
     <string-array name="array_kA_schwierig_unmoeglich">
         <item>k.A.</item>
         <item>schwierig</item>
         <item>unmoeglich</item>
     </string-array>
 
-
+    <string name="title_activity_stand_by_screen">StandByScreen</string>
 
 </resources>
