@@ -3,6 +3,7 @@ package com.example.kongoji.reanimationtest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 
 import java.io.FileOutputStream;
 import java.util.Stack;
@@ -10,7 +11,7 @@ import java.util.Stack;
 /**
  * Created by Kongoji on 14.11.14.
  */
-public class ReanimationStorageManager {
+public class ReanimationStorageManager{
 
     private static ReanimationStorageManager instance;
     private Activity activity;

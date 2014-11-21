@@ -23,7 +23,7 @@
         android:background="@drawable/buttonshape"
         android:layout_weight="1"/>
 
-    <Button
+   <!-- <Button
         android:id="@+id/startDocuScreen"
         android:text="@string/welcome_docu"
         android:layout_width="fill_parent"
@@ -31,7 +31,7 @@
         android:layout_marginLeft="10dp"
         android:textSize="50dp"
         android:background="@drawable/buttonshape"
-        android:layout_weight="1"/>
+        android:layout_weight="1"/>-->
 
     </LinearLayout>
 

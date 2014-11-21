@@ -41,7 +41,7 @@ public class StartScreen extends BaseActivity {
             }
         });
 
-        Button docuButton = (Button) findViewById(R.id.startDocuScreen);
+       /* Button docuButton = (Button) findViewById(R.id.startDocuScreen);
         docuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +49,7 @@ public class StartScreen extends BaseActivity {
                 startActivity(docuIntent);
                 finish();
             }
-        });
+        });*/
     }
 
     @Override

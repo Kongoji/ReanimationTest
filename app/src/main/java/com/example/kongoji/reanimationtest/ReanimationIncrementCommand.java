@@ -41,11 +41,11 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
         chronometer.start();
 
         if (R.id.counterDefi == counter.getId()) {
-            notifyUser(counter.getContext(), "Defibrillation " + counter.getText() + " durchgeführt");
+            notifyUser(counter.getContext(), "Defibrillation durchgeführt");
             logInfo = String.valueOf(TimeStampGenerator.getTimeStamp() + " : " + "Defibrillation" + ";");
 
         } else {
-            notifyUser(counter.getContext(), "Adrenalin " + counter.getText() + " gegeben");
+            notifyUser(counter.getContext(), "Adrenalin gegeben");
             logInfo = String.valueOf(TimeStampGenerator.getTimeStamp() + " : " + "Adrenalin" + ";");
         }
 
@@ -62,10 +62,10 @@ public class ReanimationIncrementCommand extends ReanimationCommand {
         Log.d("Undo Event: " + String.valueOf(counter.getText()), TimeStampGenerator.getTimeStamp());
 
         if (R.id.counterDefi == counter.getId()) {
-            notifyUser(counter.getContext(), "Defibrillation " + counter.getText() + " rückgängig gemacht");
+            notifyUser(counter.getContext(), "Defibrillation rückgängig gemacht");
 
         } else {
-            notifyUser(counter.getContext(), "Adrenalin " + counter.getText() + " rückgängig gemacht");
+            notifyUser(counter.getContext(), "Adrenalin rückgängig gemacht");
         }
 
 

@@ -17,7 +17,26 @@
             android:layout_marginRight="50dp"
             android:layout_marginTop="30dp">
 
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Bewusstseinslage"
+            android:textColor="#33B5E5"
+            android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
             <!--::::::::::::::::::::::::::::Ab hier "Erstbefund" :::::::::::::::::::::::::::::::::-->
+
+
 
             <TextView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
@@ -195,6 +214,23 @@
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Lähmungen"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:layout_marginTop="40dp">
 
 
@@ -319,6 +355,24 @@
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:background="#33B5E5" />
+
+        <TableRow
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="40dp">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Blutdruck / Puls / Temperatur"
+                android:textColor="#33B5E5"
+                android:textStyle="bold" />
+
+        </TableRow>
 
         <TableRow
             android:layout_marginBottom="20dp"
@@ -810,7 +864,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Athmung"
+                android:text="Atmung"
                 android:textColor="#33B5E5"
                 android:textStyle="bold" />
 
@@ -868,7 +922,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="0.33"
-                android:text="Schnappathmung" />
+                android:text="Schnappatmung" />
         </TableRow>
 
         <TableRow
@@ -908,7 +962,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="0.34"
-                android:text="Beathmung" />
+                android:text="Beatmung" />
 
             <CheckBox
                 android:id="@+id/checkbox_ass"
@@ -938,7 +992,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="psychischer Zustand"
+                android:text="Psychischer Zustand"
                 android:textColor="#33B5E5"
                 android:textStyle="bold" />
 

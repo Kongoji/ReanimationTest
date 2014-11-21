@@ -26,7 +26,7 @@
                 android:layout_margin="10dip"
                 android:layout_weight="1"
                 android:onClick="incrementCounter"
-                android:text="Defi"
+                android:text="Defibrillation"
                 android:background="@drawable/buttonshape"
                 android:textSize="50dp" />
 
